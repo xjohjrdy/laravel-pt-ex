@@ -1,0 +1,84 @@
+{
+    "code": 200,
+    "msg": "请求成功",
+    "data": {
+        "type": [
+            {
+                "cid": 15901,
+                "cname": "家庭清洁/纸品",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E5%AE%B6%E5%BA%AD%E6%B8%85%E6%B4%811.png"
+            },
+            {
+                "cid": 1620,
+                "cname": "家居日用",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E5%AE%B6%E5%B1%85%E7%94%A8%E5%93%81.png"
+            },
+            {
+                "cid": 6196,
+                "cname": "厨具",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E5%8E%A8%E5%85%B7.png"
+            },
+            {
+                "cid": 1318,
+                "cname": "运动户外",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E6%88%B7%E5%A4%96%E8%BF%90%E5%8A%A8.png"
+            },
+            {
+                "cid": 6233,
+                "cname": "玩具乐器",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E5%AE%B6%E5%BA%AD%E6%B8%85%E6%B4%811.png"
+            },
+            {
+                "cid": 1319,
+                "cname": "母婴",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E6%AF%8D%E5%A9%B4.png"
+            },
+            {
+                "cid": 9855,
+                "cname": "家装建材",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E5%AE%B6%E8%A3%85%E5%BB%BA%E6%9D%90.png"
+            },
+            {
+                "cid": 1316,
+                "cname": "美妆护肤",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E7%BE%8E%E5%AE%B9%E6%8A%A4%E8%82%A4.png"
+            },
+            {
+                "cid": 6144,
+                "cname": "珠宝首饰",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E7%8F%A0%E5%AE%9D%E9%A6%96%E9%A5%B0.png"
+            },
+            {
+                "cid": 9987,
+                "cname": "手机通讯",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E6%89%8B%E6%9C%BA%E9%80%9A%E8%AE%AF.png"
+            },
+            {
+                "cid": 1320,
+                "cname": "食品饮料",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E9%A3%9F%E5%93%81%E9%A5%AE%E6%96%99.png"
+            },
+            {
+                "cid": 9192,
+                "cname": "医药保健",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E5%8C%BB%E8%8D%AF%E4%BF%9D%E5%81%A5.png"
+            },
+            {
+                "cid": 17329,
+                "cname": "箱包皮具",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E7%AE%B1%E5%8C%85%E7%9A%AE%E5%85%B7.png"
+            },
+            {
+                "cid": 1315,
+                "cname": "服饰内衣",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E6%9C%8D%E9%A5%B0%E5%86%85%E8%A1%A3.png"
+            },
+            {
+                "cid": 6233,
+                "cname": "",
+                "img_url": "http://a119112.oss-cn-beijing.aliyuncs.com/shop/ok/%E5%AE%B6%E5%BA%AD%E6%B8%85%E6%B4%811.png"
+            }
+        ],
+        "time": 374154
+    }
+}

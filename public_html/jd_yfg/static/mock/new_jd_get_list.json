@@ -1,0 +1,96 @@
+{
+    "code": 200,
+    "msg": "请求成功",
+    "data": [
+        {
+            "img": "http://img14.360buyimg.com/ads/jfs/t21883/310/1048216873/165224/4dea533/5b1f9d4fN802bbdc2.jpg",
+            "title": "居居家 刷清洁刷去污浴缸瓷砖厨房洗锅洗碗水池刷海绵擦 单只 颜色随机【无双】",
+            "sell_number": 4,
+            "goods_id": "29207978584",
+            "price_before": "16.90",
+            "price_after": "9.90",
+            "easy_price": 9.89
+        },
+        {
+            "img": "http://img14.360buyimg.com/ads/jfs/t1/27428/34/7909/147828/5c70f1e8E1f1f51c7/bbf7c3f4e3d48f53.jpg",
+            "title": "居居家 小白鞋神器一擦白喷雾清洗去污擦鞋神奇洗擦刷鞋边清洁剂去黄小白鞋 一瓶装【祝福】",
+            "sell_number": 415,
+            "goods_id": "42028535645",
+            "price_before": "16.90",
+            "price_after": "9.90",
+            "easy_price": 9.89
+        },
+        {
+            "img": "http://img14.360buyimg.com/ads/jfs/t1/5757/11/14477/94373/5bda9ffaE147f2309/84ad102d31d8a807.jpg",
+            "title": "居居家 居家加厚塑料把手床刷 家居衣物清洁刷除尘刷子 单只 颜色随机【祝福】",
+            "sell_number": 13,
+            "goods_id": "35752964037",
+            "price_before": "18.90",
+            "price_after": "9.90",
+            "easy_price": 9.89
+        },
+        {
+            "img": "http://img14.360buyimg.com/ads/jfs/t1/26496/16/9248/129677/5c7c9822E6e6395ea/6acda13ff09c0f47.jpg",
+            "title": "居居家 【送橡胶手套】家用刷子塑料软毛清洁衣刷鞋刷子洗衣服硬毛板刷鞋刷 颜色随机三只装【祝福】",
+            "sell_number": 70,
+            "goods_id": "42674005195",
+            "price_before": "29.90",
+            "price_after": "9.90",
+            "easy_price": 9.89
+        },
+        {
+            "img": "http://img14.360buyimg.com/ads/jfs/t27691/26/1250180917/343846/a11710d8/5bc46099Nee343e82.jpg",
+            "title": "居居家 一次性手套一次性塑料手套各种规格家用手套 100只/包   1包【祝福】",
+            "sell_number": 3,
+            "goods_id": "46156732894",
+            "price_before": "16.90",
+            "price_after": "9.90",
+            "easy_price": 9.89
+        },
+        {
+            "img": "http://img14.360buyimg.com/ads/jfs/t1/14391/33/9416/109650/5c7f6d14E9ed2d28b/9c34bba480b601c1.jpg",
+            "title": "居居家 【亏本促销】驱蚊手环成人儿童防蚊子宝宝随身户外驱蚊扣贴防蚊手环 2个【无双】",
+            "sell_number": 257,
+            "goods_id": "42756762034",
+            "price_before": "16.90",
+            "price_after": "9.90",
+            "easy_price": 9.89
+        },
+        {
+            "img": "http://img14.360buyimg.com/ads/jfs/t1/29115/40/11681/152456/5c91e649E26bd1d90/bf661d266f76a835.jpg",
+            "title": "居居家 芦荟洗洗手液500ml天然植物精华芦荟护理液 1瓶【无双】",
+            "sell_number": 66,
+            "goods_id": "35758926920",
+            "price_before": "16.90",
+            "price_after": "9.90",
+            "easy_price": 9.89
+        },
+        {
+            "img": "http://img14.360buyimg.com/ads/jfs/t1/19734/17/7978/133305/5c711790E673b96df/5a40f95479e458b0.jpg",
+            "title": "居居家 双面刷毛器粘毛器羊毛大衣沙发去毛刷除毛器静电刷一只 颜色随机【无双】",
+            "sell_number": 80,
+            "goods_id": "42044028293",
+            "price_before": "16.90",
+            "price_after": "9.90",
+            "easy_price": 9.89
+        },
+        {
+            "img": "http://img14.360buyimg.com/ads/jfs/t1/32997/19/5161/124276/5c832be2E22398dbd/9de7258b78b086e6.jpg",
+            "title": "居家日用天然竹夹子竹衣晾晒衣夹晒衣服夹封口夹裤袜夹小晾夹 一包【无双】",
+            "sell_number": 108,
+            "goods_id": "45491678380",
+            "price_before": "16.90",
+            "price_after": "9.90",
+            "easy_price": 9.89
+        },
+        {
+            "img": "http://img14.360buyimg.com/ads/jfs/t1/6461/26/4782/152000/5bdab0d0Ef2051133/a630d1e055fbef0d.jpg",
+            "title": "居居家 柠檬酸电水壶除垢剂水垢清洁剂除茶垢清洗剂 5袋【无双】",
+            "sell_number": 492,
+            "goods_id": "35757985388",
+            "price_before": "16.90",
+            "price_after": "9.90",
+            "easy_price": 9.89
+        }
+    ]
+}

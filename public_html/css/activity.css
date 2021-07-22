@@ -1,0 +1,33 @@
+/*Author:哈密小生;Date:2019-07-16*/
+/*苏宁易购活动对应的样式表*/
+/*去除苹果设备默认属性*/
+input[type="button"],input[type="submit"],input[type="reset"],input[type="text"],input[type="tel"]{-webkit-appearance: none;}
+textarea{-webkit-appearance:none;border-radius:0;}
+/*去除Chrome等浏览器文本框默认发光边框*/
+input:focus,textarea:focus{outline:none;}
+/*背景*/
+.ac_bg_line{background:url('../images/ac_line.png') top center repeat-y;background-size: 100%;}
+/*-------------index.html(活动首页)--------------*/
+/*banner*/
+.banner_box{width: 100%;height: 6.62rem;position: relative;z-index:2;}
+.banner_box img{display: block;}
+/*领取优惠口令按钮*/
+.kl_btn_box{width: 2.96rem;height: 0.62rem;position: absolute;z-index: 10;top: 5.38rem;left: 50%;margin-left: -1.48rem;overflow: hidden;}
+.kl_btn{width: 100%;height: 100%;display: block;}
+.run_kl_btn{-webkit-animation:2s infinite hmScale;animation:2s infinite hmScale;display:block;}
+@-webkit-keyframes hmScale{0%{-webkit-transform:scale(1);}10%{-webkit-transform: scale(0.85);}20%{-webkit-transform:scale(1);}30%{-webkit-transform:scale(0.85);}40%{-webkit-transform:scale(1);}}
+@keyframes hmScale{0%{transform:scale(1);}10%{transform: scale(0.85);}20%{transform:scale(1);}30%{transform:scale(0.85);}40%{transform:scale(1);}}
+/*其他按钮*/
+.other_btn_box{width: 2.96rem;height: 0.54rem;position: absolute;z-index: 10;top: 6.12rem;left: 50%;margin-left: -1.48rem;}
+.down_btn{width: 1.66rem;height: 0.54rem;display: block;float: left;}
+.tx_btn{width: 1.14rem;height: 0.54rem;display: block;float: right;}
+/*活动规则*/
+.ac_rule_box{width: 3.48rem;position: absolute;z-index: 10;top: 7.76rem;left: 50%;margin-left: -1.74rem;padding-bottom: 0.22rem;}
+.kl_btn img,.down_btn img,.tx_btn img,.ac_rule_box img{display: block;}
+.tip_box{width: 3.1rem;line-height: 0.26rem;text-align: center;font-size: 0.16rem;background: rgba(0, 0, 0, 0.8);color: #fff;position: fixed;border-radius: 50px;display: none;z-index:99;top:50%;left:50%;-webkit-transform: translate(-50%,-50%);transform: translate(-50%,-50%);padding: 0.2rem 0.32rem;text-align: center;}
+.hm_show{display: block;}
+.hm_hide{display: none;}
+.hm_copy_txt{opacity: 0;position: absolute;top: 0;left: 0;height:0;}
+/*按压效果*/
+.down_btn,.tx_btn{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;/*取消长按复制*/}
+.down_btn:active,.tx_btn:active{-webkit-transform:scale(0.95);transform:scale(0.95);}/*小按钮*/

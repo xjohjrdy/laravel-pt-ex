@@ -1,0 +1,42 @@
+{
+    "code": 200,
+    "msg": "请求成功",
+    "data": {
+        "can": 2,
+        "can_use": 1,
+        "money": 44,
+        "get_money": 0,
+        "orders": [
+        	{
+		        "orderid": "94868558030",
+		        "ordertime": 1521557219530,
+		        "finishtime": 0,
+		        "pid": 1,
+		        "goods_id": "42795596254",
+		        "goods_name": "运动轴承跳绳健身器材男女学生训练中考负重跳神 ",
+		        "goods_num": "1",
+		        "goods_frozennum": "0",
+		        "goods_returnnum": "0",
+		        "cosprice": "1.00",
+		        "subunionid": "12345",
+		        "yn": 1,
+		        "ynstatus": "已付款"
+	        },
+	        {
+		        "orderid": "88888558030",
+		        "ordertime": 1481557219530,
+		        "finishtime": 0,
+		        "pid": 1,
+		        "goods_id": "42795596254",
+		        "goods_name": "纯棉时尚T恤 活泼阳光男孩虽说是撒旦",
+		        "goods_num": "1",
+		        "goods_frozennum": "0",
+		        "goods_returnnum": "0",
+		        "cosprice": "33.00",
+		        "subunionid": "12345",
+		        "yn": 0,
+		        "ynstatus": "已付款"
+	        }
+        ]
+    }
+}

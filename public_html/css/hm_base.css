@@ -1,0 +1,85 @@
+/*Author:哈密小生;Date:2015-12-17*/
+
+/******  字体编码 ****
+  中文       英文       unicode
+新细明体	PMingLiU	\65B0\7EC6\660E\4F53
+细明体	    MingLiU	    \7EC6\660E\4F53
+标楷体	    DFKai-SB	\6807\6977\4F53
+黑体	    SimHei	    \9ED1\4F53
+宋体	    SimSun	    \5B8B\4F53
+新宋体	    NSimSun	    \65B0\5B8B\4F53
+仿宋	    FangSong	\4EFF\5B8B
+楷体	    KaiTi	    \6977\4F53
+仿宋_GB2312	FangSong_GB2312	\4EFF\5B8B_GB2312
+楷体_GB2312	KaiTi_GB2312	\6977\4F53_GB2312
+微软正黑体	Microsoft JhengHei	\5FAE\x8F6F\6B63\9ED1\4F53
+微软雅黑	Microsoft YaHei	\5FAE\8F6F\96C5\9ED1
+****/
+html,body,div,span,object,h1,h2,h3,h4,h5,h6,p,a,address,cite,del,em,img,q,u,i,dl,dt,dd,ol,ul,li,form,label,table,tr,th,td,caption,tbody,tfoot,thead,article,aside,details,summary,figure,figcaption,footer,header,menu,nav,section,audio,input,select,textarea{padding:0;margin:0;border:none;}
+body{min-width:320px;max-width:640px;margin:0 auto;/*font-family:"microsoft yahei",Verdana,Arial,Helvetica,sans-serif;*/font-family:"microsoft yahei",Helvetica,Arial,Tahoma,sans-serif;cursor:default;word-break:break-all;white-space:normal;-webkit-tap-highlight-color:rgba(255,255,255,0);}
+header,footer,nav,section,menu,article,aside{display:block;}
+ul,li{list-style:none;}
+a{text-decoration:none;}
+img{vertical-align:middle;}
+.hm_clear{clear:both;}
+.hm_display{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-o-box;display:box;}
+.hm_box_flex{-webkit-box-flex:1;-moz-box-flex:1;-ms-flex:1;-o-box-flex:1;box-flex:1;}
+.hm_box_flex2{-webkit-box-flex:2;-moz-box-flex:2;-ms-flex:2;-o-box-flex:2;box-flex:2;}
+.clearfix:after{content:" ";display:block;height:0;clear:both;visibility:hidden}.clearfix{zoom:1}
+.hm_box_siz{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+/*去除苹果设备默认属性*/
+input[type="button"],input[type="submit"],input[type="reset"],input[type="text"]{-webkit-appearance: none;}
+textarea{-webkit-appearance:none;border-radius:0;}   
+/*去除Chrome等浏览器文本框默认发光边框*/
+input:focus,textarea:focus{outline:none;}
+
+.hm_pos_r{position:relative;}
+.hm_pos_a{position:absolute;}
+.hm_float_l{float:left;}
+.hm_float_r{float:right;}
+
+.hm_f_yahei{font-family:'\5FAE\8F6F\96C5\9ED1';}
+.hm_f_song{font-family:'\5B8B\4F53';}
+.hm_f_hei{font-family:'\9ED1\4F53';}
+.hm_f_kaiti{font-family:'\6977\4F53';}
+.hm_f_fsong{font-family:'\4EFF\5B8B';}
+
+
+
+/*拓展的宽度*/
+.hm_w_20{width:20%;}
+.hm_w_32{width:32%;}
+.hm_w_34{width:34%;}
+.hm_w_36{width:36%;}
+.hm_w_38{width:38%;}
+.hm_w_46{width:46%;}
+.hm_w_50{width:50%;}
+.hm_w_60{width:60%;}
+.hm_w_62{width:62%;}
+.hm_w_100{width:100%;}
+.hm_w_125{width:4.80769rem;}
+.hm_w193{width:193px;}
+/*拓展的高度*/
+.hm_h_30{height:1.15385rem;}
+/*拓展的边距*/
+.mar_top_11{margin-top:0.42308rem;}
+.mar_top_32{margin-top:1.23077rem;}
+
+.mar_bot_10{margin-bottom:0.38462rem;}
+.mar_bot_14{margin-bottom:0.53846rem;}
+.mar_bot_20{margin-bottom:0.83333rem;}
+.mar_bot_32{margin-bottom:1.23077rem;}
+.mar_bot_112{margin-bottom:4.30769rem;}
+.mar_bot_160{margin-bottom:6.15384rem;}
+.hm_mar_11{margin:0.42308rem 0;}
+
+
+/*拓展的颜色*/
+.bg_green{background:#88C849;}
+.bg_white,.bg_color_white{background:#fff;}
+.bg_hui{background:#f8f8f8;}
+.bg_color{background:#F8F9FA;}
+.color_fen{color:#e30177;}
+.color_lan{color:#0285cf;}
+
+.utm_link{cursor:pointer;}

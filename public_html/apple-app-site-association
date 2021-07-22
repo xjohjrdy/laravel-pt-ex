@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "VCFFMRBCW4.cn.grape.GrapeBrowser",
+                "paths": ["*", "/*"]
+            }
+        ]
+    }
+}

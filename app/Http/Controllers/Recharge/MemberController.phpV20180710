@@ -1,0 +1,280 @@
+<?php
+
+namespace App\Http\Controllers\Recharge;
+
+use App\Entitys\Ad\AdUserInfo;
+use App\Entitys\Ad\RechargeOrder;
+use App\Entitys\Ad\RechargeSetting;
+use App\Entitys\Ad\UserAccount;
+use App\Exceptions\ApiException;
+use App\Services\Recharge\PurchaseUserGroup;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Mockery\Exception;
+use function Psy\debug;
+
+class MemberController extends Controller
+{
+    /**
+     *
+     * 获取用户余额等级信息
+     * 传入uid、check_code(明文)
+     * @param Request $request
+     * @param AdUserInfo $adUserInfo
+     * @param UserAccount $userAccount
+     * @return \Illuminate\Http\JsonResponse
+     * @throws ApiException
+     */
+    public function index(Request $request, AdUserInfo $adUserInfo, UserAccount $userAccount, RechargeOrder $rechargeOrder, RechargeSetting $rechargeSetting)
+    {
+        try {
+            $arrRequest = json_decode($request->data, true);
+            if (!$arrRequest || !array_key_exists('uid', $arrRequest)) {
+                throw new ApiException('传入参数错误', '3001');
+            }
+            $user = $adUserInfo->getUserById($arrRequest['uid']);
+            if (!$user) {
+                throw new ApiException('用户出现错误！', '3003');
+            }
+            $user_account = $userAccount->getUserAccount($arrRequest['uid']);
+            if ($user->check_code <> $request->header('code')) {
+                throw new ApiException('用户异常！', '3002');
+            }
+            $user_type = $rechargeOrder->getUserType($arrRequest['uid']);
+            $setting = $rechargeSetting->getRechargeSetting($user_type);
+
+            return $this->getResponse([
+                "username" => $user->username,
+                "group_id" => $user->groupid,
+                "account" => $user_account->extcredits3,
+                "buy_setting" => $setting
+            ]);
+        } catch (Exception $e) {
+            throw new ApiException('服务器异常', '500');
+        }
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+    }
+
+    /**
+     *
+     * 购买成功更新用户等级
+     * @param Request $request
+     * @param PurchaseUserGroup $purchaseUserGroup
+     * @return \Illuminate\Http\JsonResponse
+     * @throws ApiException
+     */
+    public function store(Request $request, PurchaseUserGroup $purchaseUserGroup)
+    {
+        try {
+            /**************************= 参数验证 =***************************/
+            $jsonParams = $request->data;
+            if (empty($jsonParams)) {
+                throw new ApiException('参数异常', '3001');
+            }
+            $arrParams = json_decode($jsonParams, true);
+
+            $rules = [
+                'act' => 'required',
+                'gid' => 'required',
+                'uid' => 'required',
+                'type' => 'required'
+            ];
+            $validator = Validator::make($arrParams, $rules);
+            if ($validator->fails()) {
+                throw new ApiException('缺少必要参数', 3002);
+            }
+            if ($arrParams['act'] != 'buy') {
+                throw new ApiException('请求错误', 5001);
+            }
+            /**************************= 初始化一些参数 =***************************/
+            $uid = $arrParams['uid'];
+            $gid = $arrParams['gid'];
+            $timestamp = $purchaseUserGroup->timestamp;
+            $listIdRechargeSetting = $purchaseUserGroup->getRechargeSetting();
+            $userInfo = $purchaseUserGroup->getUserCommonMember($uid);
+            /**************************= 逻辑开始 =***************************///判断用户是否可买当前用户组
+            if (!$purchaseUserGroup->isGroupOk($uid, $gid)) {
+                throw new ApiException('非法购买', 5002);
+            }/*Array
+            (
+                [73] => 22
+                [74] => 23
+                [75] => 24
+                [76] => 24
+                [77] => 24
+            )*/
+            $listIdGroupId = array_column($listIdRechargeSetting, 'groupid', 'id');/*Array
+            (
+                [73] => 10
+                [74] => 800
+                [75] => 3000
+                [76] => 2700
+                [77] => 2200
+            )*/
+            $listGroupPrice = array_column($listIdRechargeSetting, 'price', 'id');/*
+             * Array
+            (
+                [73] => 31
+                [74] => 9999
+                [75] => 9999
+                [76] => 9999
+                [77] => 9999
+            )
+             */
+            $listGroupDays = array_column($listIdRechargeSetting, 'days', 'id');
+
+
+            $listGroupDesc = array_column($listIdRechargeSetting, 'desc', 'id');
+
+
+            $groupid = $listIdGroupId[$gid];
+            $userAccountRMB = $purchaseUserGroup->getUserAccountRMB($uid);
+            $groupPriceRMB = $listGroupPrice[$gid];
+            if ($userAccountRMB < $groupPriceRMB) {
+                throw new ApiException('用户余额不足', 2001);
+            }
+            $orderid = date('YmdHis') . $purchaseUserGroup->random(18);
+            if ($purchaseUserGroup->whetherOrder($orderid)) {
+                $orderid = date('YmdHis') . $purchaseUserGroup->random(18);
+            }
+            $arrOrderParam = array(
+                'orderid' => $orderid,
+                'status' => '2',
+                'uid' => $uid,
+                'groupid' => $groupid,
+                'amount' =>$listGroupDays[$gid],
+                'price' => $listGroupPrice[$gid],
+                'desc' => $listGroupDesc[$gid],
+                'submitdate' => $timestamp,
+                'confirmdate' => $timestamp,
+                'a' => '',
+                'b' => '',
+                'c' => '',
+                'd' => 0,
+                'e' => 0,
+            );
+            $purchaseUserGroup->addOrder($arrOrderParam);
+            $extgroupids = $userInfo['extgroupids'] ? explode("\t", $userInfo['extgroupids']) : array();
+            $extgroupidsarray = array($userInfo['groupid']);
+            foreach (array_unique(array_merge($extgroupids, array($groupid))) as $extgroupid) {
+                if ($extgroupid) {
+                    $extgroupidsarray[] = $extgroupid;
+                }
+            }
+            $extgroupidsnew = implode("\t", $extgroupidsarray);
+            $purchaseUserGroup->updateExtgroupids($extgroupidsnew);
+            $groupterms = $purchaseUserGroup->getGroupterms();
+            $groupterms['ext'][$groupid] = (@$groupterms['ext'][$groupid] > $timestamp ? $groupterms['ext'][$groupid] : $timestamp) + $listGroupDays[$gid] * 86400;
+            $purchaseUserGroup->updateUserAccountRMB($userAccountRMB - $groupPriceRMB);
+            /**********************/
+            $purchaseUserGroup->returnCommission($orderid, $groupPriceRMB);/**********************///将处理好的用户订单数据更新进去
+            $purchaseUserGroup->updateGroupterms($groupterms);
+            if (in_array($groupid, array(23, 24))) {
+                $groupexpirynew = $groupterms['ext'][$groupid];
+                $purchaseUserGroup->updateCommonMemberGroup($groupid, $groupexpirynew);
+            }
+            /**************************= 开始处理文章 =***************************/
+            $addArticleNumber = 10;
+            if ($groupPriceRMB >= 300) {
+                $is_forever = 1;
+                if ($purchaseUserGroup->isTimeOk()){
+                    $addArticleNumber = 0;
+                }
+            } else {
+                $is_forever = 0;
+            }
+            $arrAgentInfo = $purchaseUserGroup->getAgentInfo();
+            if ($arrAgentInfo) {
+                if ($arrAgentInfo['forever']&&$is_forever){
+                    $articleNumber = $arrAgentInfo['number'];
+                }else{
+                    $articleNumber = $arrAgentInfo['number']+$addArticleNumber;
+                }
+                $is_forever = $arrAgentInfo['forever'] ? 1 : $is_forever;
+
+                $purchaseUserGroup->updateAgentInfo($timestamp, $articleNumber, $is_forever);
+            } else {
+                $purchaseUserGroup->addAgentInfo($timestamp, $addArticleNumber, $is_forever);
+            }
+
+        } catch (\Exception $e) {
+            if (!empty($e->getCode())) {
+                throw new ApiException($e->getMessage(), $e->getCode());
+            }
+
+            throw new ApiException('购买异常', 5003);
+        }
+
+        return $this->getResponse("开通成功");
+
+    }
+
+    /**
+     *
+     * 用户订单列表
+     * @param $id
+     * @param Request $request
+     * @param RechargeOrder $rechargeOrder
+     * @return \Illuminate\Http\JsonResponse
+     * @throws ApiException
+     */
+    public function show($id, Request $request, RechargeOrder $rechargeOrder)
+    {
+        try {
+            $arrRequest = json_decode($request->data, true);
+            if (!$arrRequest || !array_key_exists('uid', $arrRequest)) {
+                throw new ApiException('传入参数错误', '3001');
+            }
+            if ($id <> $arrRequest['uid']) {
+                throw new ApiException('信息被篡改！', '3002');
+            }
+
+            $orders = $rechargeOrder->getUserOrders($arrRequest['uid']);
+
+            return $this->getResponse($orders);
+
+        } catch (Exception $e) {
+            throw new ApiException('服务器异常', '500');
+        }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+    }
+}

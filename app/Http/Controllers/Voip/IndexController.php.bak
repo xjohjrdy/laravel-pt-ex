@@ -1,0 +1,321 @@
+<?php
+
+namespace App\Http\Controllers\Voip;
+
+use App\Exceptions\ApiException;
+use App\Services\Voip\Call;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+
+class IndexController extends Controller
+{
+
+    /**
+     * 发送拨打电话请求
+     * @param Request $request
+     * @param Call $call
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws ApiException
+     */
+    public function index(Request $request, Call $call)
+    {
+        try {
+            if ($request->header('data')) {
+                $request->data = $request->header('data');
+            }
+            $arrRequest = json_decode($request->data, true);
+
+            $validator = Validator::make($arrRequest, [
+                'user_id' => 'required',
+                'my_phone' => 'required',
+                'to_phone' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return response('传入参数错误', 500);
+            }
+
+            $user_id = $arrRequest['user_id'];
+            $my_phone = $arrRequest['my_phone'];
+            $to_phone = $arrRequest['to_phone'];
+            if (strlen($to_phone) <> 11) {
+                return $this->getInfoResponse('5005', '请输入正常的手机号拨打！');
+            }
+            $call->user_id = $user_id;
+            if (!$call->verifyMoney()) {
+                return $this->getInfoResponse('2001', '话费余额不足');
+            }
+            $call->callUp($my_phone, $to_phone);
+        } catch (\Exception $e) {
+            if (!empty($e->getCode())) {
+                throw new ApiException($e->getMessage(), $e->getCode());
+            }
+            throw new ApiException('服务器异常', '500');
+        }
+
+        return $this->getResponse('呼叫成功');
+
+    }
+
+    /*
+     * 新VOIP通讯
+     */
+    public function xinVoip(Request $request, Call $call)
+    {
+        try {
+            if ($request->header('data')) {
+                $request->data = $request->header('data');
+            }
+            $arrRequest = json_decode($request->data, true);
+
+            $validator = Validator::make($arrRequest, [
+                'user_id' => 'required',
+                'my_phone' => 'required',
+                'to_phone' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return response('传入参数错误', 500);
+            }
+
+            $user_id = $arrRequest['user_id'];
+            $my_phone = $arrRequest['my_phone'];
+            $to_phone = $arrRequest['to_phone'];
+            if (strlen($to_phone) <> 11) {
+                return $this->getInfoResponse('5005', '请输入正常的手机号拨打！');
+            }
+            $call->user_id = $user_id;
+            if (!$call->verifyMoney()) {
+                return $this->getInfoResponse('2001', '话费余额不足');
+            }
+            $call->callUpNew($my_phone, $to_phone);
+        } catch (\Exception $e) {
+            if (!empty($e->getCode())) {
+                throw new ApiException($e->getMessage(), $e->getCode());
+            }
+            throw new ApiException('服务器异常', '500');
+        }
+
+        return $this->getResponse('呼叫成功');
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+    }
+
+    /**
+     * 回调函数
+     * @param Request $request
+     * @param Call $call
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
+     * @throws \Throwable
+     */
+    public function callback(Request $request, Call $call)
+    {
+
+        $get_param = $request->all();
+
+        $validator = Validator::make($get_param, [
+            'orderid' => 'required',
+            'state' => 'required',
+            'hold_time' => 'required',
+            'fee_time' => 'required|regex:/^\d+$/',
+        ]);
+
+        if ($validator->fails()) {
+            return response('error', 500);
+        }
+        if (!$call->verifyOrder($get_param['orderid'])) {
+            return response('no', 501);
+        }
+        $call->updateOrder($get_param);
+
+        return response('1', 200);
+
+    }
+
+    /*
+     * 新的通讯回调函数
+     */
+    public function callbackNew(Request $request, Call $call)
+    {
+        $get_param = $request->all();
+
+        $validator = Validator::make($get_param, [
+            'orderid' => 'required',
+            'state' => 'required',
+            'hold_time' => 'required',
+            'fee_time' => 'required|regex:/^\d+$/',
+        ]);
+
+        if ($validator->fails()) {
+            return response('error', 500);
+        }
+        if (!$call->verifyOrder($get_param['orderid'])) {
+            return response('no', 501);
+        }
+        $call->updateOrder($get_param);
+
+        return response('1', 200);
+
+    }
+
+    /**
+     * 用户个人中心
+     * @param Request $request
+     * @param Call $call
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws ApiException
+     */
+    public function indexInfo(Request $request, Call $call)
+    {
+
+        try {
+            if ($request->header('data')) {
+                $request->data = $request->header('data');
+            }
+            $arrRequest = json_decode($request->data, true);
+
+            $validator = Validator::make($arrRequest, [
+                'user_id' => 'required',
+                'my_phone' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return response('传入参数错误', 500);
+            }
+
+            $user_id = $arrRequest['user_id'];
+            $user_phone = $arrRequest['my_phone'];
+            $call->user_id = $user_id;
+            $call->user_phone = $user_phone;
+            $call->checkFailure();
+            $arr_account_info = $call->getAccountInfo();
+        } catch (\Exception $e) {
+            if (!empty($e->getCode())) {
+                throw new ApiException($e->getMessage(), $e->getCode());
+            }
+            throw new ApiException('服务器异常', '500');
+        }
+
+        return $this->getResponse($arr_account_info);
+    }
+
+    /**
+     * 得到话单列表
+     * @param Request $request
+     * @param Call $call
+     * @return \Illuminate\Http\JsonResponse
+     * @throws ApiException
+     */
+    public function getOrderList(Request $request, Call $call)
+    {
+
+        try {
+            if ($request->header('data')) {
+                $request->data = $request->header('data');
+            }
+            $arrRequest = json_decode($request->data, true);
+
+            $validator = Validator::make($arrRequest, [
+                'user_id' => 'required',
+                'start_time' => 'required',
+                'end_time' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return response('传入参数错误', 500);
+            }
+
+            $call->user_id = $arrRequest['user_id'];
+            $start_time = $arrRequest['start_time'];
+            $end_time = $arrRequest['end_time'];
+
+            $arr_order_list = $call->getOrderInfo($start_time, $end_time);
+        } catch (\Exception $e) {
+            if (!empty($e->getCode())) {
+                throw new ApiException($e->getMessage(), $e->getCode());
+            }
+            throw new ApiException('服务器异常', '500');
+        }
+
+        return $this->getResponse($arr_order_list);
+
+    }
+
+    /**
+     * 得到回拨电话列表
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getPhoneList()
+    {
+        $phone_list = '08386731070,08386731145,08386731146,08386731147,08386731148,08386731170,08386731171,08386731172,08386731173,08386731174,
+        02825054637,02860224881,02860224882,02860224883,02860224884,02860224885,02860224886,02860224887,02860224888,02860224889,02860224890,
+        02860224891,02860224892,02860224893,02860224894,02860224895,02860224896,02860224897,02860224898,02860224899,02860224900,
+        02860424220,02860424221,02860424222,02860424223,02860424224,02860424225,02860424226,02860424227,02860424228,02860424229,
+        02860424230,02860424231,02860424232,02860424233,02860424234,02860424235,02860424236,02860424237,02860424238,02860424239
+        ';
+
+        return $this->getResponse($phone_list);
+    }
+
+}

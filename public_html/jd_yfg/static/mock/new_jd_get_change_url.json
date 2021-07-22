@@ -1,0 +1,9 @@
+{
+    "code": 200,
+    "msg": "请求成功",
+    "data": {
+        "data": "https://u.jd.com/PsDpUw",
+        "message": "success",
+        "status_code": 200
+    }
+}

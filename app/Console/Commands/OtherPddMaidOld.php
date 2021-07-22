@@ -1,0 +1,224 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Entitys\App\AppUserInfo;
+use App\Entitys\App\PddMaidOld;
+use App\Entitys\App\StartPageIndex;
+use App\Entitys\Other\CommandConfigOther;
+use App\Entitys\Other\ManagerPretendMaid;
+use App\Entitys\Other\PddMaidOldOther;
+use App\Entitys\OtherOut\AdUserInfoOut;
+use App\Entitys\OtherOut\PddEnterOrdersOut;
+use App\Entitys\OtherOut\PddMaidOldOut;
+use App\Services\WuHang\Maid;
+use App\Services\Xin\CalUserData;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
+class OtherPddMaidOld extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'command:OtherPddMaidOld';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Command 拼多多第三方管理费';
+
+    private $maidOldModel = null;
+    private $otherMaidOldModel = null;
+    private $commandModel = null;
+    private $managerMaidService = null;
+    private $current = ''; // 单前执行的用户
+    private $managerModel = null;
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->commandModel = new CommandConfigOther();
+        $this->maidOldModel = new PddMaidOldOut();
+        $this->managerMaidService = new Maid();
+        $this->otherMaidOldModel = new PddMaidOldOther();
+        $this->managerModel = new ManagerPretendMaid();
+        $this->commandModel->setCommandName($this->signature);
+
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $end_timestamp = time();
+        $use_timestamp = $end_timestamp;
+        $command = $this->commandModel->initCommandInfo($end_timestamp);
+        // 获取脚本执行的开始日期 相当于上次执行成功的结束日期
+        $start_timestamp = $command['start_time']; //
+        $page = $command['page_index'];
+        $page_size = $command['page_size'];
+        $retry_time = $command['end_time'];
+        if ($retry_time > 0) { // 如果不为0，则表示该时间断内未全部执行完成
+            $end_timestamp = $retry_time; // 结束时间
+        }
+        $start_time = date('Y-m-d H:i:s', $start_timestamp);
+        $end_time = date('Y-m-d H:i:s', $end_timestamp);
+//        $this->info($command->toJson());
+        $this->info('开始： ' . $start_time . ' - ' . $end_time );
+        $this->log($start_timestamp . '---' .  $end_time);
+        //TODO 查询delete_at包含的时间段，先处理删除 获取报销用户
+        $delete_list = DB::connection('app38_out')->select(
+            "select * from lc_pdd_maid_old t1
+                    WHERE t1.type = 2 AND t1.real = 0 AND t1.deleted_at BETWEEN '{$start_time}' AND '{$end_time}'"
+        );
+        foreach ($delete_list as $delete_item){
+            $maid_info = $this->otherMaidOldModel->where([
+                'trade_id' => $delete_item->trade_id,
+            ])->first();
+            if(!empty($maid_info)){ // 判断是否存在存在则删除
+                $this->otherMaidOldModel->where([
+                    'trade_id' => $delete_item->trade_id
+                ])->delete();
+                try{
+                    $this->managerModel->where(['order_id' => $delete_item->trade_id])->delete();
+                } catch (\Throwable $exception){
+                    $this->info('manager delete fail! ' . $delete_item->trade_id);
+                }
+            }
+        }
+        //TODO 查询create_at包含的时间段，再处理分佣 分页处理
+        while (1) {
+            try {
+                DB::connection('db001')->beginTransaction();
+                $maid_list = $this->maidOldModel->where('created_at', '>=', $start_time)
+                    ->where('created_at', '<=', $end_time)
+                    ->where('type', '=', 2)
+                    ->where('real', '=', 0)->orderBy('created_at')->forPage($page, $page_size)->get();
+                $count = count($maid_list);
+                $this->output->write($page . '|');
+                foreach ($maid_list as $maid_item){
+                    $order_id = $maid_item->trade_id;
+                    $datum = PddEnterOrdersOut::where(['order_sn' => $order_id])->first();
+                    if(empty($datum)){
+                        $this->log(date('Y-m-d H:i:s') . '---' . '无效的订单号：' . $order_id);
+                        continue;
+                    }
+                    $app_id = $datum->app_id;                     #取得用户appid
+                    $order_status = $datum->order_status;         #订单状态： -1 未支付; 0-已支付；1-已成团；2-确认收货；3-审核成功；4-审核失败（不可提现）；5-已经结算；8-非多多进宝商品（无佣金订单）
+                    $promotion_amount = $datum->promotion_amount; #佣金金额(分)
+                    $order_sn = $datum->order_sn;                 #推广编号id
+                    $commission = $promotion_amount / 100;#分变元
+                    $parent_info = AdUserInfoOut::where('pt_id', $app_id)->first(['groupid', 'pt_pid', 'pt_id']);
+                    $tmp_next_id = $parent_info['pt_pid'];
+                    $count_partner = 0;
+
+                    try{
+                        $this->managerMaidService->maid($order_sn, $commission, $tmp_next_id, $app_id, 4);
+                    } catch (\Throwable $exception){
+                        $this->info('manager maid fail!' . $order_sn . '-commission-' . $commission . '-appid-' . $app_id);
+                    }
+
+                    for ($i = 1; $i < 50; $i++) {
+                        if (empty($tmp_next_id)) {
+                            break;
+                        }
+                        $parent_info = AdUserInfoOut::where('pt_id', $tmp_next_id)->first(['groupid', 'pt_pid', 'pt_id']);
+
+                        if (empty($parent_info)) {
+                            $this->log($tmp_next_id . '用户不存在!');
+                            break;
+                        }
+                        $p_groupid = $parent_info['groupid'];
+                        $p_pt_pid = $parent_info['pt_pid'];
+                        $p_pt_id = $parent_info['pt_id'];
+
+                        $tmp_next_id = $p_pt_pid;
+
+                        if ($i == 1) {
+                            if ($p_groupid == 23) {
+                                $due_rmb = round($commission * 0.1, 2);
+                            } elseif ($p_groupid == 24) {
+                                $due_rmb = round($commission * 0.1, 2);
+                                $count_partner += 1;
+                            } else {
+                                $due_rmb = round($commission * 0.05, 2);
+                            }
+                        } else {
+                            if ($p_groupid != 24) {
+                                continue;
+                            }
+                            if ($count_partner == 0) {
+                                $due_rmb = round($commission * 0.05, 2);
+                            } else {
+                                $due_rmb = round($commission * 0.025, 2);
+                            }
+                            $count_partner += 1;
+                        }
+
+                        if (empty($due_rmb) || $i == 1) {
+                            continue;
+                        }
+                        // 判断第三方是否已经分佣，是直接跳出
+                        $has1 = !PddMaidOldOther::where(['trade_id' => (string)$order_sn, 'app_id' => (string)$p_pt_id])->exists();
+                        $has2 = !PddMaidOldOut::where(['trade_id' => (string)$order_sn, 'app_id' => (string)$p_pt_id])->exists();
+                        if ($has1 && $has2) {
+                            PddMaidOldOther::create([
+                                'father_id' => $app_id,
+                                'trade_id' => (string)$order_sn,
+                                'app_id' => $p_pt_id,
+                                'group_id' => $p_groupid,
+                                'maid_money' => $due_rmb,
+                                'type' => 1,
+                                'real' => 0,
+                            ]);
+                        }
+
+                        if ($count_partner >= 2) {
+                            break;
+                        }
+                    }
+                }
+                //TODO 处理结束 更新命令config信息
+                $page++;
+                $this->commandModel->pageSuccess($page);
+                if ($count < $page_size) { // 全部执行完毕
+                    $this->commandModel->allSuccess($end_timestamp + 1);
+                    DB::connection('db001')->commit();
+                    break;
+                }
+
+                DB::connection('db001')->commit();
+            } catch (\Exception $e) {
+                DB::connection('db001')->rollBack();
+                $msg = '第' . $page . '页, ID：' . $this->current . '||' . $e->getMessage() . 'line:' . $e->getLine();
+                $this->info($msg);
+                $this->commandModel->error($msg);
+                break;
+            }
+        }
+        $this->info('end! 耗时：' . round((time() - $use_timestamp) / 60, 2) . '分钟');
+
+    }
+
+    /*
+     * 记录日志
+     */
+    private function log($msg)
+    {
+        Storage::disk('local')->append('callback_document/OtherMaid/pdd.txt', var_export($msg, true));
+    }
+
+}

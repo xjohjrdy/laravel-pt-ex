@@ -1,0 +1,92 @@
+<?php
+
+namespace App\Http\Controllers\Newbies;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class IndexController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+
+        $arrNewbieList = array(
+            array(
+                'title' => '如何发布头条',
+                'imgUrl' => 'https://a119112.oss-cn-beijing.aliyuncs.com/%E8%A7%86%E9%A2%91/%E7%BB%8413%402x.png',
+                'contentUrl' => 'https://a119112.oss-cn-beijing.aliyuncs.com/%E8%A7%86%E9%A2%91/%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83%E5%A4%B4%E6%9D%A1%20.mp4'
+            ),
+            array(
+                'title' => '正确购物报销视频',
+                'imgUrl' => 'https://a119112.oss-cn-beijing.aliyuncs.com/%E8%A7%86%E9%A2%91/bg1%402x.png',
+                'contentUrl' => 'https://a119112.oss-cn-beijing.aliyuncs.com/%E8%A7%86%E9%A2%91/%E6%AD%A3%E7%A1%AE%E8%B4%AD%E7%89%A9%E6%8A%A5%E9%94%80%E8%A7%86%E9%A2%91.mp4'
+            )
+        );
+        return $this->getResponse($arrNewbieList);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+    }
+}
