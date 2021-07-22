@@ -67,7 +67,7 @@ class NewsController extends Controller
                 $news_info['title'] = $info_single['title'];
                 $news_info['abstract'] = $info_single['digest'];
                 $news_info['article_url'] = $info_url;
-                $news_info['vipcn_name'] = '葡萄浏览器';
+                $news_info['vipcn_name'] = '我的浏览器';
                 $news_info['vipcn_url'] = $info_single['link'];
                 $news_info['addtime'] = time();
                 $news_info['static'] = 10;

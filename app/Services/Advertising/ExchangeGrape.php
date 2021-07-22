@@ -54,7 +54,7 @@ class ExchangeGrape
     }
 
     /**
-     * 得到用户的葡萄币金额
+     * 得到用户的我的币金额
      * @param $uid
      * @return bool|mixed
      */
@@ -90,7 +90,7 @@ class ExchangeGrape
     }
 
     /**
-     * 扣除葡萄币，并记录日志
+     * 扣除我的币，并记录日志
      * @param $uid
      * @param $userPTB
      * @param $ptb
@@ -107,7 +107,7 @@ class ExchangeGrape
             $insert_id = $this->userCreditLog->addLog($uid, "TFR", ['extcredits4' => -$ptb]);
             $this->aboutLog->addLog($insert_id, $uid, $userInfo->username, $userInfo->pt_id, ["extcredits4" => $startPTB], ["extcredits4" => $finalPTB]);
         } catch (\Exception $e) {
-            throw new ApiException('扣除葡萄币失败', 5003);
+            throw new ApiException('扣除我的币失败', 5003);
         }
         return true;
     }

@@ -707,7 +707,7 @@ class PurchaseUserGroup
 //            $this->userAccount->where('uid', $p_uid)->update(['extcredits4' => DB::raw("extcredits4 + " . $due_ptb)]);
 //            $insert_id = $this->userCreditLog->addLog($p_uid, "FPT", ['extcredits4' => $due_ptb]);
 //            $this->aboutLog->addLog($insert_id, $p_uid, $p_username, $p_pt_id, ["extcredits4" => $perentAcount], ["extcredits4" => $perentAcount + $due_ptb]);
-            //加葡萄币改为加余额
+            //加我的币改为加余额
             $obj_user_money = new UserMoney();
             $obj_user_money->plusCnyAndLog($p_pt_id, $due_ptb/10, 50);
 

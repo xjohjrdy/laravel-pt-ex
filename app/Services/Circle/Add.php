@@ -136,7 +136,7 @@ class Add
 //            $extcredits4_change = $user_account->extcredits4 - $add_price_ptb;
 //            $this->aboutLog->addLog($insert_id, $user->uid, $user->username, $user->pt_id, ["extcredits4" => $user_account->extcredits4], ["extcredits4" => $extcredits4_change]);
 //        }
-        //加葡萄币改为加余额
+        //加我的币改为加余额
         $obj_user_money = new UserMoney();
         $obj_user_money->plusCnyAndLog($user->pt_id, $add_price_ptb / 10, 51);
 
@@ -240,7 +240,7 @@ class Add
 //                $obj_about_log = new UserAboutLog();
 //                $insert_id = $obj_credit_log->addLog($parentInfo['uid'], "CAF", ['extcredits4' => $commission], 0);
 //                $obj_about_log->addLog($insert_id, $parentInfo['uid'], $parentInfo['username'], $parentInfo['pt_id'], ["extcredits4" => $user_ptb], ["extcredits4" => $user_ptb + $commission]);
-                //加葡萄币改为加余额
+                //加我的币改为加余额
                 $obj_user_money = new UserMoney();
                 $obj_user_money->plusCnyAndLog($parentInfo['pt_id'], $commission / 10, 53);
 
@@ -334,7 +334,7 @@ class Add
 //            $obj_about_log = new UserAboutLog();
 //            $insert_id = $obj_credit_log->addLog($parentInfo['uid'], "CAF", ['extcredits4' => $commission], 0);
 //            $obj_about_log->addLog($insert_id, $parentInfo['uid'], $parentInfo['username'], $parentInfo['pt_id'], ["extcredits4" => $user_ptb], ["extcredits4" => $user_ptb + $commission]);
-            //加葡萄币改为加余额
+            //加我的币改为加余额
             $obj_user_money = new UserMoney();
             $obj_user_money->plusCnyAndLog($parentInfo['pt_id'], $commission / 10, 53);
 

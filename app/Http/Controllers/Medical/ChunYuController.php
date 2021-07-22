@@ -173,9 +173,9 @@ class ChunYuController extends Controller
                 $ad_user_info = AdUserInfo::where(['pt_id' => $app_id])->first();
                 $user_account = $userAccount->getUserAccount($ad_user_info->uid);
 
-                return $this->getInfoResponse('3001', '不支持葡萄币！');
+                return $this->getInfoResponse('3001', '不支持我的币！');
                 if ($user_account->extcredits4 < $price * 10) {
-                    return $this->getInfoResponse('3001', '葡萄币余额不足！');
+                    return $this->getInfoResponse('3001', '我的币余额不足！');
                 }
                 $params = [
                     'app_id' => $app_id,
@@ -252,7 +252,7 @@ class ChunYuController extends Controller
                 $medicalSpringRainOrders->addOrder($params);
                 $ali_value['out_trade_no'] = $out_order_no;
                 $ali_value['total_amount'] = $price;
-                $ali_value['subject'] = '葡萄医疗问答 - ' . $price . '元';
+                $ali_value['subject'] = '我的医疗问答 - ' . $price . '元';
                 $ali_secret = Pay::alipay(config('medical.ali_question_config'))->app($ali_value);
                 return $this->getResponse($ali_secret->getContent());
                 break;
@@ -284,7 +284,7 @@ class ChunYuController extends Controller
                 $order = [
                     'out_trade_no' => $out_order_no,
                     'total_fee' => ($price * 100),
-                    'body' => '葡萄医疗问答 - ' . $price . '元',
+                    'body' => '我的医疗问答 - ' . $price . '元',
                 ];
 
                 $this->wechat_config['notify_url'] = config('medical.we_question_config.notify_url');

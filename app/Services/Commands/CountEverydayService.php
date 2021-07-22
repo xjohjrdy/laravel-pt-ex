@@ -438,7 +438,7 @@ LIMIT ?,?;', [$page, $limit]);
     }
 
     /*
-     * 通过app_id 查询 指定时间，葡萄通讯购买订单数量
+     * 通过app_id 查询 指定时间，我的通讯购买订单数量
      */
     public function getVoIpNumber($app_id, $begin_time_string, $end_time_string)
     {
@@ -599,7 +599,7 @@ LIMIT ?,?;', [$page, $limit]);
         $active_value = $register_number;
         $this->addUserActive($num_app_id, 5, $active_value);
 
-        /**********= 统计葡萄商城活跃度 type:6 =**********/
+        /**********= 统计我的商城活跃度 type:6 =**********/
         //开始测试
         //测试通过 //修改成分后未测试
         $monetary = $this->getMonetary($num_app_id, $begin_time_string, $end_time_string);//得到团队当月消费的金额，时间区间为字符串时间
@@ -614,10 +614,10 @@ LIMIT ?,?;', [$page, $limit]);
         $active_value = $agent_order_number * 2;
         $this->addUserActive($num_app_id, 0, $active_value);
 
-        /**********= 统计葡萄通讯活跃度 type:2 =**********/
+        /**********= 统计我的通讯活跃度 type:2 =**********/
         //开始测试
         //测试通过
-//                $voip_number = $obj_order->getVoIpNumber($num_app_id, $begin_time_string, $end_time_string);//得到团队葡萄通讯购买订单数，时间区间为字符串时间
+//                $voip_number = $obj_order->getVoIpNumber($num_app_id, $begin_time_string, $end_time_string);//得到团队我的通讯购买订单数，时间区间为字符串时间
 //                $active_value = $voip_number;
         $active_value = 0;
         $this->addUserActive($num_app_id, 2, $active_value);

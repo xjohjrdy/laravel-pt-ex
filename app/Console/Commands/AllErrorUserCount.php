@@ -95,7 +95,7 @@ class AllErrorUserCount extends Command
 
                     Storage::disk('local')->append('callback_document/test_error.txt', var_export('---------------分佣用户username：' . $i_detail_2->username . '--------', true));
 
-                    Storage::disk('local')->append('callback_document/test_error.txt', var_export('---------------分佣用户葡萄币的数量：' . $v2['money'] . '--------', true));
+                    Storage::disk('local')->append('callback_document/test_error.txt', var_export('---------------分佣用户我的币的数量：' . $v2['money'] . '--------', true));
                 }
 
                 Storage::disk('local')->append('callback_document/test_error.txt', var_export('=======================================================================================================', true));

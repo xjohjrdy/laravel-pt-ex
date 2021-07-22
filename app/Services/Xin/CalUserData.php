@@ -215,9 +215,9 @@ class CalUserData
     }
 
     /**
-     * 获取新版葡萄通讯总额
+     * 获取新版我的通讯总额
      * $int_vip_number  获取团队VIP数
-     * $num_sum_voip_money 新版葡萄通讯总额
+     * $num_sum_voip_money 新版我的通讯总额
      */
     public function getMobilePassMoney()
     {
@@ -361,7 +361,7 @@ class CalUserData
     {
 //        $accountPtb = $shopOrdersMaid->getAllCreditLog($this->app_id)->sum('money');
         $accountPtb = $this->obj_maid_model->where(['app_id' => $this->app_id])->whereBetween('created_at', ["{$this->st_time}", "{$this->end_time}"])->sum('money');
-        return $accountPtb / 10; // 葡萄币 转 元
+        return $accountPtb / 10; // 我的币 转 元
     }
 
     /**
@@ -372,7 +372,7 @@ class CalUserData
 //        $allPtb = $ordersMaid->getCountMoney($arrRequest['app_id']);
         $where['app_id'] = $this->app_id;
         $where['status'] = 0;
-        $countMoney = $this->ordersMaid->where($where)->whereBetween('created_at', ["{$this->st_time}", "{$this->end_time}"])->sum('money'); // 葡萄比
+        $countMoney = $this->ordersMaid->where($where)->whereBetween('created_at', ["{$this->st_time}", "{$this->end_time}"])->sum('money'); // 我的比
         $allPtb = $countMoney / 10;
         return $allPtb;
     }

@@ -67,7 +67,7 @@ class PuTaoNewsController extends Controller
                 return $this->getInfoResponse('4441', '您剩余文章数为0，无法发布哦。');
             }
             if ($number <= 0) {
-                return $this->getInfoResponse('4441', '超级用户才可以每个月发布葡萄头条哦。');
+                return $this->getInfoResponse('4441', '超级用户才可以每个月发布我的头条哦。');
             }
 
             $app_user = $appUserInfo->getUserById($arrRequest['app_id']);

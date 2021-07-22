@@ -98,7 +98,7 @@ class CountUserActiveTempTest extends Command
                     $objOrder->addUserActive($numUserId,5,$activeValue);
                 }
 				
-				/*********************= 统计葡萄商城活跃度 =***********************/
+				/*********************= 统计我的商城活跃度 =***********************/
                 $strBeginTime = date('Y-m-d H:i:s', $beginTime);
                 $strEndTime = date('Y-m-d H:i:s', $endTime);
 

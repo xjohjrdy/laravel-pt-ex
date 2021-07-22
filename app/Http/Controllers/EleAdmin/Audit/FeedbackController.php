@@ -63,7 +63,7 @@ class FeedbackController extends Controller
 
             $opinionReply = new OpinionReply();
             $commentList = new CommentList();
-            $name = $params['from'] ? '心选购小助手' : '葡萄小助手';
+            $name = $params['from'] ? '心选购小助手' : '我的小助手';
             $opinionReply->create([
                 'opinion_id' => $params['id'],
                 'content' => $params['content'],

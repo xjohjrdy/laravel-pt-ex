@@ -265,7 +265,7 @@ class ShopCommissionController extends Controller
                 if ($commission_result > 0 && $commission_result < 1) {
                     $commission_result = 1;
                 }
-                $commission_result = $commission_result / 10; #葡萄币转金额
+                $commission_result = $commission_result / 10; #我的币转金额
 
                 //得到分佣订单所属用户id
                 $obj_shop_orsers = new ShopOrdersOut();

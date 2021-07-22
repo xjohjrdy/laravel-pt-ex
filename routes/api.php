@@ -241,7 +241,7 @@ Route::group(['middleware' => ['data']], function () {
     Route::post('growth_user_income_list', 'Growth\UserInComeController@userMaidDetail');
     Route::post('growth_user_v1_childs', 'Growth\IndexController@getUserNext');
 
-    // 葡萄头条用户模块
+    // 我的头条用户模块
     Route::post('release_news_article', 'News\PuTaoNewsController@releaseArticle');
     Route::get('get_news_all_articles', 'News\PuTaoNewsController@getAllUserArticles');
     Route::get('get_news_one_articles', 'News\PuTaoNewsController@getUserArticles');
@@ -469,7 +469,7 @@ Route::group(['middleware' => ['data']], function () {
     Route::post('medical_dialogues_get', 'Medical\ChunYuController@getDialogues');
     Route::post('medical_get_issue_history', 'Medical\IndexController@getIssueHistory');
     Route::post('medical_health_bzgh', 'Medical\IndexController@healthBzgh');
-    Route::post('medical_health_jkgjqdb', 'Medical\IndexController@healthJkgjqdb');//健康之路 葡萄首页
+    Route::post('medical_health_jkgjqdb', 'Medical\IndexController@healthJkgjqdb');//健康之路 我的首页
     Route::post('medical_health_bzgh_T', 'Medical\IndexController@healthBzghT');//健康之路H5 临时增加
     Route::post('medical_create_question', 'Medical\ChunYuController@createQuestion');
     Route::post('ali_get_verify_token', 'Prove\LivingProveController@getVerifyToken');//ali 发起活体认证

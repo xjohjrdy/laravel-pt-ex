@@ -184,7 +184,7 @@ class IndexController extends Controller
                 return $this->getInfoResponse('4002', '注意：不要代替他人申请，请填写登录电话。');
             }
             if ($arrRequest['pt_id'] <> $user->id) {
-                return $this->getInfoResponse('4003', '注意：不要代替他人申请，您的葡萄id不匹配,请前往‘我的’查看id');
+                return $this->getInfoResponse('4003', '注意：不要代替他人申请，您的我的id不匹配,请前往‘我的’查看id');
             }
             if ($ad_user->groupid < $type) {
                 return $this->getInfoResponse('4004', '您的等级无法满足申请条件');

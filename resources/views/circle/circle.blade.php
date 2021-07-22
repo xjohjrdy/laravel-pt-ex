@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>葡萄浏览器圈子</title>
+    <title>我的浏览器圈子</title>
     <link rel="stylesheet" href="https://a119112.oss-cn-beijing.aliyuncs.com/circle/index.css">
     <link rel="stylesheet" href="https://a119112.oss-cn-beijing.aliyuncs.com/circle/css/swiper.min.css">
 </head>
@@ -14,8 +14,8 @@
         <div>
             <img src="https://a119112.oss-cn-beijing.aliyuncs.com/circle/images/logo.png" alt="" class="lf">
             <div class="lf">
-                <p class="header-title">葡萄浏览器</p>
-                <span class="dec">葡萄浏览器是一款多功能为一体的浏览器APP</span>
+                <p class="header-title">我的浏览器</p>
+                <span class="dec">我的浏览器是一款多功能为一体的浏览器APP</span>
             </div>
             <button class="lr">打开</button>
         </div>
@@ -69,7 +69,7 @@
                 <div class="introduce-frm">
                     <div class="introduce-header">
                         <p class="grapes"><img src="https://a119112.oss-cn-beijing.aliyuncs.com/circle/images/logo.png"
-                                               alt="">葡萄浏览器</p>
+                                               alt="">我的浏览器</p>
                         <p class="introduce-hea">女装外贸交流圈</p>
                         <p class="introduce">人以圈分，圈以格局划分</p>
                     </div>
@@ -105,7 +105,7 @@
                         <button id="join">马上加入</button>
                     </div>
                     <div class="introduce-header footer">
-                        <p class="grapes">葡萄浏览器圈子 ● 女装外贸交流圈</p>
+                        <p class="grapes">我的浏览器圈子 ● 女装外贸交流圈</p>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 
 class MiniAuth
 {
-    //葡萄优选
+    //我的优选
 //    private $app_id = 'wx8e681805fc9c3e02';
 //    private $app_secret = '2b4af62085ce03a6ea7f3029a50dd0b8';
 

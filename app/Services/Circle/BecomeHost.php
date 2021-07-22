@@ -108,7 +108,7 @@ class BecomeHost
     }
 
     /*
-     * 校验用户葡萄币是否够用
+     * 校验用户我的币是否够用
      */
     public function verifyPtb($user_uid, $value)
     {
@@ -123,8 +123,8 @@ class BecomeHost
     }
 
     /*
-     * 通过用户 app_id 扣除相应葡萄币，并记录日志
-     * $value 为葡萄币值
+     * 通过用户 app_id 扣除相应我的币，并记录日志
+     * $value 为我的币值
      * （独立方法，可直接调用）
      */
     public function takePtb($app_id, $value)
@@ -164,10 +164,10 @@ class BecomeHost
     }
 
     /*
-     * 通过 app_id 添加用户葡萄币，并记录日志
-     * $value为葡萄币值
+     * 通过 app_id 添加用户我的币，并记录日志
+     * $value为我的币值
      * （可独立使用）
-     * （用做圈子被购买，返还葡萄币）
+     * （用做圈子被购买，返还我的币）
      */
     public function addPtb($app_id, $value)
     {
@@ -183,7 +183,7 @@ class BecomeHost
 //            $obj_about_log = new UserAboutLog();
 //            $insert_id = $obj_credit_log->addLog($user_uid, "CRP", ['extcredits4' => $value]);
 //            $obj_about_log->addLog($insert_id, $user_uid, $username, $app_id, ["extcredits4" => $user_ptb], ["extcredits4" => $user_ptb + $value]);
-            //加葡萄币改为加余额
+            //加我的币改为加余额
             $obj_user_money = new UserMoney();
             $obj_user_money->plusCnyAndLog($app_id, $value/10, 55);
 
@@ -271,7 +271,7 @@ class BecomeHost
 //            $obj_about_log = new UserAboutLog();
 //            $insert_id = $obj_credit_log->addLog($parentInfo['uid'], "CFP", ['extcredits4' => $commission]);
 //            $obj_about_log->addLog($insert_id, $parentInfo['uid'], $parentInfo['username'], $parentInfo['pt_id'], ["extcredits4" => $user_ptb], ["extcredits4" => $user_ptb + $commission]);
-            //加葡萄币改为加余额
+            //加我的币改为加余额
             $obj_user_money = new UserMoney();
             $obj_user_money->plusCnyAndLog($parentInfo['pt_id'], $commission/10, 56);
 
@@ -362,7 +362,7 @@ class BecomeHost
 //            $obj_about_log = new UserAboutLog();
 //            $insert_id = $obj_credit_log->addLog($parentInfo['uid'], "CFP", ['extcredits4' => $commission]);
 //            $obj_about_log->addLog($insert_id, $parentInfo['uid'], $parentInfo['username'], $parentInfo['pt_id'], ["extcredits4" => $user_ptb], ["extcredits4" => $user_ptb + $commission]);
-            //加葡萄币改为加余额
+            //加我的币改为加余额
             $obj_user_money = new UserMoney();
             $obj_user_money->plusCnyAndLog($parentInfo['pt_id'], $commission/10, 56);
 
@@ -485,7 +485,7 @@ class BecomeHost
 //            $obj_about_log = new UserAboutLog();
 //            $insert_id = $obj_credit_log->addLog($parentInfo['uid'], "CBP", ['extcredits4' => $commission]);
 //            $obj_about_log->addLog($insert_id, $parentInfo['uid'], $parentInfo['username'], $parentInfo['pt_id'], ["extcredits4" => $user_ptb], ["extcredits4" => $user_ptb + $commission]);
-            //加葡萄币改为加余额
+            //加我的币改为加余额
             $obj_user_money = new UserMoney();
             $obj_user_money->plusCnyAndLog($parentInfo['pt_id'], $commission/10, 57);
 
@@ -554,7 +554,7 @@ class BecomeHost
 //        $obj_about_log = new UserAboutLog();
 //        $insert_id = $obj_credit_log->addLog($parentInfo['uid'], "CFP", ['extcredits4' => $commission]);
 //        $obj_about_log->addLog($insert_id, $parentInfo['uid'], $parentInfo['username'], $parentInfo['pt_id'], ["extcredits4" => $user_ptb], ["extcredits4" => $user_ptb + $commission]);
-        //加葡萄币改为加余额
+        //加我的币改为加余额
         $obj_user_money = new UserMoney();
         $obj_user_money->plusCnyAndLog($parentInfo['pt_id'], $commission/10, 56);
     }

@@ -51,7 +51,7 @@ class AdInfo extends Model
      */
     public function updateOrInsertUserAd($user_id, $arrRequest, $username)
     {
-        $ad_title = array_key_exists('ad_title', $arrRequest) ? $arrRequest['ad_title'] : "葡萄浏览器";
+        $ad_title = array_key_exists('ad_title', $arrRequest) ? $arrRequest['ad_title'] : "我的浏览器";
         $ad_link = $arrRequest['ad_link'] ? $arrRequest['ad_link'] : "http://api.36qq.com/getReward/" . $username;
         $ad_img = $arrRequest['ad_img'] ? $arrRequest['ad_img'] : "https://a119112.oss-cn-beijing.aliyuncs.com/app_question/haibao/haibao.jpg";
         $pmd = $arrRequest['ad_context'] ? $arrRequest['ad_context'] : "跑马灯内容";
@@ -91,7 +91,7 @@ class AdInfo extends Model
     public function addUserAd($user_id, $arrRequest)
     {
         $this->userid = $user_id;
-        $this->ad_title = array_key_exists('ad_title', $arrRequest) ? $arrRequest['ad_title'] : "葡萄浏览器";
+        $this->ad_title = array_key_exists('ad_title', $arrRequest) ? $arrRequest['ad_title'] : "我的浏览器";
         $this->ad_link = array_key_exists('ad_link', $arrRequest) ? $arrRequest['ad_link'] : "#";
         $this->ad_img = array_key_exists('ad_img', $arrRequest) ? $arrRequest['ad_img'] : "https://a119112.oss-cn-beijing.aliyuncs.com/app_question/haibao/haibao.jpg";
         $res = $this->save();

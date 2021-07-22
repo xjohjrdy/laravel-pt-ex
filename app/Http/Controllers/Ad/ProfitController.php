@@ -47,9 +47,9 @@ class ProfitController extends Controller
                     }
                 }
                 if ($model->extcredits4 <> 0) {
-                    $model->dispaly_info = "葡萄币：" . $model->extcredits4;
+                    $model->dispaly_info = "我的币：" . $model->extcredits4;
                     if ($model->extcredits4 > 0) {
-                        $model->dispaly_info = "葡萄币：+" . $model->extcredits4;
+                        $model->dispaly_info = "我的币：+" . $model->extcredits4;
                     }
                 }
                 if ($model->extcredits5 <> 0) {

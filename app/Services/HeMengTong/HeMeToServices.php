@@ -118,7 +118,7 @@ class HeMeToServices
             'fapino' => uniqid('whmt', true),        #开发者订单号
             'furl' => 'http://api.36qq.com/callback/he_meng_tong_pay_call_back',#支付结果异步通知地址
             'fadd' => $fapino,                                             #可空 附加参数（非空时支付成功异步回调原值返回）
-            'fname' => '葡萄浏览器',                                       #名称
+            'fname' => '我的浏览器',                                       #名称
         ];
         $data = http_build_query($post_api_data);
         $data_all = 'pages/index/index?' . $data;
@@ -175,7 +175,7 @@ class HeMeToServices
             'fapino' => uniqid('whmt', true),        #开发者订单号
             'furl' => 'http://api.36qq.com/api/he_meng_tong_circle_send_call_back',#支付结果异步通知地址
             'fadd' => $fapino,                                             #可空 附加参数（非空时支付成功异步回调原值返回）
-            'fname' => '葡萄浏览器',                                       #名称
+            'fname' => '我的浏览器',                                       #名称
         ];
         $data = http_build_query($post_api_data);
         $data_all = 'pages/index/index?' . $data;
@@ -236,7 +236,7 @@ class HeMeToServices
             'fapino' => uniqid('whmt', true),        #开发者订单号
             'furl' => 'http://api.36qq.com/api/he_meng_tong_circle_buy_call_back',#支付结果异步通知地址
             'fadd' => $fapino,                                             #可空 附加参数（非空时支付成功异步回调原值返回）
-            'fname' => '葡萄浏览器',                                       #名称
+            'fname' => '我的浏览器',                                       #名称
         ];
         $data = http_build_query($post_api_data);
         $data_all = 'pages/index/index?' . $data;
@@ -293,7 +293,7 @@ class HeMeToServices
             'fapino' => uniqid('whmt', true),        #开发者订单号
             'furl' => 'http://api.36qq.com/api/he_meng_tong_circle_join_call_back',#支付结果异步通知地址
             'fadd' => $fapino,                                             #可空 附加参数（非空时支付成功异步回调原值返回）
-            'fname' => '葡萄浏览器',                                       #名称
+            'fname' => '我的浏览器',                                       #名称
         ];
         $data = http_build_query($post_api_data);
         $data_all = 'pages/index/index?' . $data;
@@ -350,7 +350,7 @@ class HeMeToServices
             'fapino' => uniqid('whmt', true),        #开发者订单号
             'furl' => 'http://api.36qq.com/callback/he_meng_tong_medical_call_back',#支付结果异步通知地址
             'fadd' => $fapino,                                             #可空 附加参数（非空时支付成功异步回调原值返回）
-            'fname' => '葡萄浏览器',                                       #名称
+            'fname' => '我的浏览器',                                       #名称
         ];
         $data = http_build_query($post_api_data);
         $data_all = 'pages/index/index?' . $data;
@@ -409,7 +409,7 @@ class HeMeToServices
             'furl' => 'http://api.36qq.com/callback/fulu_pay_call_back',#支付结果异步通知地址
 //            'furl' => 'http://dns88.zicp.vip/callback/fulu_pay_call_back',#支付结果异步通知地址
             'fadd' => $fadd,                                             #可空 附加参数（非空时支付成功异步回调原值返回）
-            'fname' => '葡萄浏览器',                                       #名称
+            'fname' => '我的浏览器',                                       #名称
         ];
         $data = http_build_query($post_api_data);
         $data_all = 'pages/index/index?' . $data;
@@ -469,7 +469,7 @@ class HeMeToServices
             'furl' => 'http://api.36qq.com/callback/wx_robot_pay',#支付结果异步通知地址
 //            'furl' => 'http://dns88.zicp.vip/callback/wx_robot_pay',#支付结果异步通知地址
             'fadd' => $fadd,                                             #可空 附加参数（非空时支付成功异步回调原值返回）
-            'fname' => '葡萄浏览器',                                       #名称
+            'fname' => '我的浏览器',                                       #名称
         ];
         $data = http_build_query($post_api_data);
         $data_all = 'pages/index/index?' . $data;
@@ -526,7 +526,7 @@ class HeMeToServices
             'fapino' => uniqid('whcoin', true),        #开发者订单号
             'furl' => 'http://api.36qq.com/callback/he_meng_tong_coin_shop_call_back',#支付结果异步通知地址
             'fadd' => $fapino,                                             #可空 附加参数（非空时支付成功异步回调原值返回）
-            'fname' => '葡萄浏览器',                                       #名称
+            'fname' => '我的浏览器',                                       #名称
         ];
         $data = http_build_query($post_api_data);
         $data_all = 'pages/index/index?' . $data;

@@ -18,7 +18,7 @@ class UserController extends Controller
 {
     /**
      *
-     * 取出用户的葡萄币提现记录
+     * 取出用户的我的币提现记录
      * /api/user
      * data:{"user_id": "3"}
      * @param Request $request
@@ -135,7 +135,7 @@ class UserController extends Controller
         }
         $resAdd = $groupUpgrade->addPTB();
         if (empty($resAdd)) {
-            throw new ApiException('添加葡萄币错误', 3001);
+            throw new ApiException('添加我的币错误', 3001);
         }
         $resUpdate = $groupUpgrade->updateGroupId();
         if (empty($resUpdate)) {

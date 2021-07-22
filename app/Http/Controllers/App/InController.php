@@ -54,7 +54,7 @@ class InController extends Controller
                 $order_id = "PTBTX" . $arrRequest['order_id'];
             }
             if ($arrRequest['type'] == 2) {
-                $desc = "葡萄浏览器余额提现";
+                $desc = "我的浏览器余额提现";
                 $order_id = "BXTX" . $arrRequest['order_id'];
             }
             if ($arrRequest['type'] == 3) {
@@ -62,7 +62,7 @@ class InController extends Controller
                 $order_id = "FHBXTX" . $arrRequest['order_id'];
             }
             if ($arrRequest['type'] == 4) {
-                $desc = "葡萄商城退款";
+                $desc = "我的商城退款";
                 $order_id = "TKTX" . $arrRequest['order_id'];
             }
 

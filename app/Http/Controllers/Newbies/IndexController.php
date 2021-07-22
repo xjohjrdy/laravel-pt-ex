@@ -47,13 +47,13 @@ class IndexController extends Controller
 //                'contentUrl' => 'http://a119112.oss-cn-beijing.aliyuncs.com/UI-%E5%A7%9C%E9%AB%98%E5%B0%9A/%E5%9B%BE%E7%89%87%E9%A6%96%E9%A1%B5/1/%E8%A7%86%E9%A2%91/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B1114_v2/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B1114_v2/4%20-%20%E5%9C%88%E5%AD%90%E6%8A%A2%E7%BA%A2%E5%8C%85.mp4'
 //            ),
 //            array(
-//                'title' => '如何购买葡萄圈子',
+//                'title' => '如何购买我的圈子',
 ////                'imgUrl' => 'http://a119112.oss-cn-beijing.aliyuncs.com/UI-%E5%A7%9C%E9%AB%98%E5%B0%9A/%E5%9B%BE%E7%89%87%E9%A6%96%E9%A1%B5/1/%E8%A7%86%E9%A2%91/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B1114_v2/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B1114_v2/%E6%96%B0%E6%89%8B%E6%94%BB%E7%95%A5banner%E5%9B%BE-1114/%E5%A6%82%E4%BD%95%E8%B4%AD%E4%B9%B0%E8%91%A1%E8%90%84%E5%9C%88%E5%AD%90.png',
 //                'imgUrl' => 'http://cdn01.36qq.com/CDN/%E8%B4%AD%E4%B9%B0%E5%9C%88%E5%AD%90@2x.png',
 //                'contentUrl' => 'http://a119112.oss-cn-beijing.aliyuncs.com/UI-%E5%A7%9C%E9%AB%98%E5%B0%9A/%E5%9B%BE%E7%89%87%E9%A6%96%E9%A1%B5/1/%E8%A7%86%E9%A2%91/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B1114_v2/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B1114_v2/6%20-%20%E8%B4%AD%E4%B9%B0%E5%9C%88%E5%AD%90.mp4'
 //            ),
 //            array(
-//                'title' => '如何退出葡萄圈子',
+//                'title' => '如何退出我的圈子',
 ////                'imgUrl' => 'http://a119112.oss-cn-beijing.aliyuncs.com/UI-%E5%A7%9C%E9%AB%98%E5%B0%9A/%E5%9B%BE%E7%89%87%E9%A6%96%E9%A1%B5/1/%E8%A7%86%E9%A2%91/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B1114_v2/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B1114_v2/%E6%96%B0%E6%89%8B%E6%94%BB%E7%95%A5banner%E5%9B%BE-1114/%E5%A6%82%E4%BD%95%E9%80%80%E5%87%BA%E8%91%A1%E8%90%84%E5%9C%88%E5%AD%90.png',
 //                'imgUrl' => 'http://cdn01.36qq.com/CDN/%E9%80%80%E5%87%BA%E8%91%A1%E8%90%84%E5%9C%88%E5%AD%90@2x.png',
 //                'contentUrl' => 'http://a119112.oss-cn-beijing.aliyuncs.com/UI-%E5%A7%9C%E9%AB%98%E5%B0%9A/%E5%9B%BE%E7%89%87%E9%A6%96%E9%A1%B5/1/%E8%A7%86%E9%A2%91/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B1114_v2/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B1114_v2/5%20-%20%E9%80%80%E5%87%BA%E5%9C%88%E5%AD%90.mp4'

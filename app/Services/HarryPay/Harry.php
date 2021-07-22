@@ -278,7 +278,7 @@ class Harry
         $json_arr['cardAttribute'] = $cardAttribute;
         $json_arr['payAccount'] = $payAccount;
         $json_arr['certificateType'] = $certificateType;
-        $json_arr['remark'] = '葡萄浏览器';
+        $json_arr['remark'] = '我的浏览器';
 
         $post_api_data_sign_en = json_encode($json_arr);
         $web_rsa = new RsaHarry();
@@ -437,7 +437,7 @@ class Harry
         $json_arr['payType'] = $payType;
         $json_arr['cardAttribute'] = $cardAttribute;
         $json_arr['payAccount'] = $payAccount;
-        $json_arr['remark'] = '葡萄浏览器';
+        $json_arr['remark'] = '我的浏览器';
 
         $post_api_data_sign_en = json_encode($json_arr);
         $web_rsa = new RsaHarry();

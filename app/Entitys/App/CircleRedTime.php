@@ -40,7 +40,7 @@ class CircleRedTime extends Model
     }
 
     /**
-     * 获取红包总的葡萄币
+     * 获取红包总的我的币
      * @param $app_id
      * @return mixed
      */

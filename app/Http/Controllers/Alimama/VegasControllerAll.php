@@ -239,7 +239,7 @@ class VegasControllerAll extends Controller
             $num_now_bound = $obj_alimama_info->where('taobao_user_id', $taobao_user_id)->count();
 
             if ($num_now_bound >= 4) {
-                return redirect('https://a119112.oss-cn-beijing.aliyuncs.com/静态网页/kaifazhong/app-h5/pages/error/index.html#/?msg=该淘宝账号绑定葡萄浏览器id数已达上限，请更换其他淘宝账号重试。错误码:' . $taobao_user_id);
+                return redirect('https://a119112.oss-cn-beijing.aliyuncs.com/静态网页/kaifazhong/app-h5/pages/error/index.html#/?msg=该淘宝账号绑定我的浏览器id数已达上限，请更换其他淘宝账号重试。错误码:' . $taobao_user_id);
             }
 
             if ($num_now_bound != $num_bound) {

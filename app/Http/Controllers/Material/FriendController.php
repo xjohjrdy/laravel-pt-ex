@@ -118,7 +118,7 @@ class FriendController extends Controller
                         'price' => $datum['itemprice'],
                         'sale_number' => $datum['dummy_click_statistics'],
                         'img' => 'http://putaoliulanqi1.oss-cn-zhangjiakou.aliyuncs.com//img%2F158268324690142.png',
-                        'name' => '葡萄小助手',
+                        'name' => '我的小助手',
                         'title' => $datum['itemtitle'],
                         'from_type' => 1,
                         'growth_value_new_normal' => $growth_value_new_normal,

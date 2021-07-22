@@ -69,7 +69,7 @@
 {{--<img src="http://putaoliulanqi1.oss-cn-zhangjiakou.aliyuncs.com/logo/logo.png">--}}
 {{--</div>--}}
 {{--<div class="d1_right">--}}
-{{--<p class="p1 font28">葡萄浏览器</p>--}}
+{{--<p class="p1 font28">我的浏览器</p>--}}
 {{--</div>--}}
 {{--</div>--}}
 <a href="http://a119112.oss-cn-beijing.aliyuncs.com/%E4%BA%A4%E6%98%93%E5%B8%82%E5%9C%BA/show/%E8%91%A1%E8%90%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%A3%E4%BC%A0%E5%8A%A8%E7%94%BB%E5%BE%AE%E4%BF%A1%E7%89%882(3).mp4">

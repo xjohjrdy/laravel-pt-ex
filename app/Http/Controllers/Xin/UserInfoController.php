@@ -33,7 +33,7 @@ class UserInfoController extends Controller
             $user_name = $arrRequest['user_name'];
             $app_id = $arrRequest['app_id'];
             /***********************************/
-            if (strstr($user_name, '葡萄')) {
+            if (strstr($user_name, '我的')) {
                 return $this->getInfoResponse('1001', '该名称暂时不支持使用，请重新修改。');
             }
             $res = $appUserInfo->updateUserInfoWithIM($app_id, $user_name);

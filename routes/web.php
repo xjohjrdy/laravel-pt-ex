@@ -78,7 +78,7 @@ Route::get('need_buy_back_assets_function', function () {
 
 
 Route::get('function_article_show', function () {
-    return '<h1>春节期间升级葡萄头条功能，节后再使用头条哦！</h1>';
+    return '<h1>春节期间升级我的头条功能，节后再使用头条哦！</h1>';
 });
 Route::get('get_count_test_ip', 'Test\TestController@TestCount');
 Route::get('lock_rule', 'Back\DisplayController@getRuleForLock');

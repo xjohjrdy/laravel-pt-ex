@@ -185,7 +185,7 @@ class Order
             'groupid' => 23,
             'amount' => 9999,
             'price' => $price,
-            'desc' => '葡萄商城-附送',
+            'desc' => '我的商城-附送',
             'submitdate' => time(),
             'confirmdate' => time(),
             'a' => '',
@@ -786,7 +786,7 @@ class Order
 //            $perentAcount = $this->userAccount->getUserAccount($parentInfo['uid'])->extcredits4;
 //            $insert_id = $this->userCreditLog->addLog($parentInfo['uid'], "SPT", ['extcredits4' => $commission_result]);
 //            $this->userAboutLog->addLog($insert_id, $parentInfo['uid'], $parentInfo['username'], $parentInfo['pt_id'], ["extcredits4" => $perentAcount], ["extcredits4" => $perentAcount + $commission_result]);
-            //加葡萄币改为加余额
+            //加我的币改为加余额
             $obj_user_money = new UserMoney();
             $obj_user_money->plusCnyAndLog($parentInfo['pt_id'], $commission_result / 10, 51);
 

@@ -353,7 +353,7 @@ class CountUserGrowthValue extends Command
                         continue;
                     }
 
-                    //葡萄币转元
+                    //我的币转元
                     $money = $obj_data_shop_maid_old->money / 10;
 
                     //取爆款单独计算比例

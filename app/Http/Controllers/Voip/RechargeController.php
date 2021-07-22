@@ -60,7 +60,7 @@ class RechargeController extends Controller
 
     /**
      * {"app_id":"","type_id":"","to_phone":"","buy_type":""}
-     *                  上一步id                   1：支付宝，2：葡萄币
+     *                  上一步id                   1：支付宝，2：我的币
      * @param Request $request
      * @param VoipType $voipType
      * @param VoipMoneyOrder $voipMoneyOrder
@@ -73,7 +73,7 @@ class RechargeController extends Controller
     public function create(Request $request, VoipType $voipType, VoipMoneyOrder $voipMoneyOrder, AdUserInfo $adUserInfo, UserAccount $userAccount, Buy $buy, UserCreditLog $creditLog, UserAboutLog $aboutLog)
     {
 
-        return $this->getInfoResponse('5551', '为提升更好的服务，葡萄通讯当前正在升级中，请耐心等待哦！');
+        return $this->getInfoResponse('5551', '为提升更好的服务，我的通讯当前正在升级中，请耐心等待哦！');
         try {
             $arrRequest = json_decode($request->data, true);
             if (!$arrRequest || empty($arrRequest['app_id']) || empty($arrRequest['type_id']) || empty($arrRequest['to_phone']) || empty($arrRequest['buy_type'])) {
@@ -93,7 +93,7 @@ class RechargeController extends Controller
                 $ad_user = $adUserInfo->appToAdUserId($arrRequest['app_id']);
                 $ad_account = $userAccount->getUserAccount($ad_user->uid);
                 if ($ad_account->extcredits4 < ($real_price * 10)) {
-                    return $this->getInfoResponse('4005', '您账户上的葡萄币不够');
+                    return $this->getInfoResponse('4005', '您账户上的我的币不够');
                 }
             }
             $common_function = new  CommonFunction();
@@ -101,7 +101,7 @@ class RechargeController extends Controller
             $order_voip = $voipMoneyOrder->generateNewOrder($arrRequest['app_id'], $arrRequest['to_phone'], $real_price, $price, $voip_type->title, $voip_type->remark, $voip_type->image, $arrRequest['buy_type'], $voip_type->time, $order_id);
             if ($arrRequest['buy_type'] == 1) {
                 if ($arrRequest['app_id'] <> 1744932) {
-                    return $this->getInfoResponse('4004', '支付宝正在升级中，请先用微信或者葡萄币支付');
+                    return $this->getInfoResponse('4004', '支付宝正在升级中，请先用微信或者我的币支付');
                 }
                 if ($arrRequest['app_id'] == 1744932) {
                     $real_price = 0.01;
@@ -109,7 +109,7 @@ class RechargeController extends Controller
                 $order = [
                     'out_trade_no' => $order_voip->order_id,
                     'total_amount' => $real_price,
-                    'subject' => '葡萄购物 - ' . $price . '元',
+                    'subject' => '我的购物 - ' . $price . '元',
                 ];
                 $this->config['return_url'] = 'http://api.36qq.com/notify_url_voip_buy';
                 $this->config['notify_url'] = 'http://api.36qq.com/notify_url_voip_buy';
@@ -117,14 +117,14 @@ class RechargeController extends Controller
                 return $alipay;
             }
             if ($arrRequest['buy_type'] == 3) {
-                return $this->getInfoResponse('4004', '请使用支付宝或葡萄币支付');
+                return $this->getInfoResponse('4004', '请使用支付宝或我的币支付');
                 if ($arrRequest['app_id'] == 1569840) {
                     $real_price = 0.01;
                 }
                 $order = [
                     'out_trade_no' => $order_voip->order_id,
                     'total_fee' => ($real_price * 100),
-                    'body' => '葡萄购物 - ' . $price . '元',
+                    'body' => '我的购物 - ' . $price . '元',
                 ];
                 $this->wechat_config['notify_url'] = 'http://api.36qq.com/api/voip_wechat_pay_now_wuhang';
                 $pay = Pay::wechat($this->wechat_config)->app($order);
@@ -346,22 +346,22 @@ class RechargeController extends Controller
     {
         return $this->getResponse([
             [
-                'question' => '什么情况下葡萄通讯不能打？',
+                'question' => '什么情况下我的通讯不能打？',
                 'answer' => '答:无网络或主卡欠费的情况下不能打。'
             ],
             [
-                'question' => '葡萄通讯里有什么的电话不能拨打？',
+                'question' => '我的通讯里有什么的电话不能拨打？',
                 'answer' => '答:固话.国际长途.'
             ],
             [
-                'question' => '拨打电话后出现的“葡萄专线”字样是什么意思？',
-                'answer' => '答：这是葡萄通讯跟三大运营商合作的专线，接通即可拨打到对方号码中，对方显示的是您的本机号码，跟您平时拨打电话是一样的。'
+                'question' => '拨打电话后出现的“我的专线”字样是什么意思？',
+                'answer' => '答：这是我的通讯跟三大运营商合作的专线，接通即可拨打到对方号码中，对方显示的是您的本机号码，跟您平时拨打电话是一样的。'
             ],
             [
-                'question' => '葡萄通讯资费说明',
-                'answer' => '1、葡萄通讯三网通用，通话期间不扣自身运营商的流量和话费。（注：不能抵扣自身套餐月租等）。
+                'question' => '我的通讯资费说明',
+                'answer' => '1、我的通讯三网通用，通话期间不扣自身运营商的流量和话费。（注：不能抵扣自身套餐月租等）。
 
-2、葡萄通讯通话1分钟0.25元，不满1分钟则按一分钟计算。
+2、我的通讯通话1分钟0.25元，不满1分钟则按一分钟计算。
 
 话费价格：
 

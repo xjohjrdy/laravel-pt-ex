@@ -60,7 +60,7 @@ class ResetPhoneController extends Controller
 
             $obj_voip_account = new VoipAccount();
             if (!$obj_voip_account->where('app_id', $p_app_id)->exists()) {
-                return $this->getInfoResponse('4006', '请先点击葡萄通讯后，再修改手机号');
+                return $this->getInfoResponse('4006', '请先点击我的通讯后，再修改手机号');
             }
 
             if ($obj_voip_account->where('phone', $p_phone)->exists()) {

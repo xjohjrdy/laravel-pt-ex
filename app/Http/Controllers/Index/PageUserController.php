@@ -18,7 +18,7 @@ class PageUserController extends Controller
 {
     /**
      *
-     * 取出用户的葡萄币提现记录
+     * 取出用户的我的币提现记录
      * /api/user
      * data:{"user_id": "3"}
      * @param Request $request

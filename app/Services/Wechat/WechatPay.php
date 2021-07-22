@@ -25,7 +25,7 @@ class WechatPay
      * @param string $ip IP地址 可空
      * @return mixed
      */
-    public function pay($openid, $real_name, $amount, $order_id, $desc = '葡萄浏览器用户打款', $ip = '192.168.0.1')
+    public function pay($openid, $real_name, $amount, $order_id, $desc = '我的浏览器用户打款', $ip = '192.168.0.1')
     {
 
         $params = [

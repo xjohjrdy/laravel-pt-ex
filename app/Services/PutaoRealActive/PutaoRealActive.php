@@ -15,7 +15,7 @@ use App\Entitys\App\ActiveRealResultMonth;
 use App\Entitys\App\ActiveRealResultMonthUser;
 
 /**
- * 葡萄实时活跃值接口服务
+ * 我的实时活跃值接口服务
  * @author sam
  */
 class PutaoRealActive

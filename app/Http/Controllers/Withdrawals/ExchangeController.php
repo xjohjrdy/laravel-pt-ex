@@ -110,9 +110,9 @@ class ExchangeController extends Controller
      */
     public function store(Request $request, ExchangeGrape $exchangeGrape, AdUserInfo $adUserInfo, WechatInfo $wechatInfo)
     {
-        //葡萄币即将合并到余额中，升级中暂时关闭。
+        //我的币即将合并到余额中，升级中暂时关闭。
 
-        return $this->getInfoResponse('4121', '葡萄币即将合并到余额中，升级中暂时关闭。');
+        return $this->getInfoResponse('4121', '我的币即将合并到余额中，升级中暂时关闭。');
         try {
             DB::beginTransaction();
             $jsonParams = $request->data;
@@ -151,10 +151,10 @@ class ExchangeController extends Controller
 
             $rmb = round(($ptb * 0.99) / 10, 2);
             if ($ptb < 100) {
-                return $this->getInfoResponse('2001', '提现葡萄币最少100！！！！');
+                return $this->getInfoResponse('2001', '提现我的币最少100！！！！');
             }
             if ($ptb > 50000) {
-                return $this->getInfoResponse('2001', '提现葡萄币最大50000！！！！');
+                return $this->getInfoResponse('2001', '提现我的币最大50000！！！！');
             }
             $userPTB = $exchangeGrape->getUserPTB($uid);
             if (empty($userPTB)) {
@@ -224,7 +224,7 @@ class ExchangeController extends Controller
             $m_msg .= '，用户ip：' . $request->ip();
 
 
-            return $this->getResponse("您提交的葡萄币提现请求已提交，请等待审核！");
+            return $this->getResponse("您提交的我的币提现请求已提交，请等待审核！");
         } catch (\Exception  $e) {
             DB::rollBack();
             if (!empty($e->getCode())) {

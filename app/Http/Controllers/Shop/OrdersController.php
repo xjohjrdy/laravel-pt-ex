@@ -314,7 +314,7 @@ class OrdersController extends Controller
 
                 $account = $userAccount->getUserAccount($user->uid);
                 if ($account->extcredits4 <= 0) {
-                    return $this->getInfoResponse('3002', '葡萄币数量不足');
+                    return $this->getInfoResponse('3002', '我的币数量不足');
                 }
                 $ptb_number = $account->extcredits4;
                 $price = $real_price;
@@ -392,7 +392,7 @@ class OrdersController extends Controller
                 $order = [
                     'out_trade_no' => $orders->order_id,
                     'total_amount' => $real_price,
-                    'subject' => '葡萄商城购物 - ' . $real_price . '元',
+                    'subject' => '我的商城购物 - ' . $real_price . '元',
                 ];
                 $alipay = Pay::alipay($this->config)->app($order);
                 return $alipay;
@@ -402,7 +402,7 @@ class OrdersController extends Controller
                 $order = [
                     'out_trade_no' => $orders->order_id,
                     'total_amount' => $real_price,
-                    'subject' => '葡萄商城购物 - ' . $real_price . '元',
+                    'subject' => '我的商城购物 - ' . $real_price . '元',
                 ];
                 $alipay = Pay::alipay($this->config)->app($order);
                 return $alipay;
@@ -485,7 +485,7 @@ class OrdersController extends Controller
 
                 $account = $userAccount->getUserAccount($user->uid);
                 if ($account->extcredits4 <= 0) {
-                    return $this->getInfoResponse('3002', '葡萄币数量不足');
+                    return $this->getInfoResponse('3002', '我的币数量不足');
                 }
                 $ptb_number = $account->extcredits4;
                 $price = $real_price;
@@ -544,7 +544,7 @@ class OrdersController extends Controller
                 $order = [
                     'out_trade_no' => $orders->order_id,
                     'total_fee' => ($real_price * 100),
-                    'body' => '葡萄商城购物 - ' . $real_price . '元',
+                    'body' => '我的商城购物 - ' . $real_price . '元',
                 ];
                 $this->wechat_config['notify_url'] = 'http://api.36qq.com/api/shop_wechat_pay_now_wuhang';
                 $pay = Pay::wechat($this->wechat_config)->app($order);
@@ -557,7 +557,7 @@ class OrdersController extends Controller
                 $order = [
                     'out_trade_no' => $orders->order_id,
                     'total_fee' => ($real_price * 100),
-                    'body' => '葡萄商城购物 - ' . $real_price . '元',
+                    'body' => '我的商城购物 - ' . $real_price . '元',
                 ];
                 $this->wechat_config['notify_url'] = 'http://api.36qq.com/api/shop_wechat_pay_now_wuhang';
                 $pay = Pay::wechat($this->wechat_config)->app($order);
@@ -728,7 +728,7 @@ class OrdersController extends Controller
                 $order = [
                     'out_trade_no' => $orders->order_id,
                     'total_amount' => $real_price,
-                    'subject' => '葡萄商城购物 - ' . $real_price . '元',
+                    'subject' => '我的商城购物 - ' . $real_price . '元',
                 ];
                 $alipay = Pay::alipay($this->config_v1)->app($order);
                 return $this->getResponse($alipay->getContent());
@@ -738,7 +738,7 @@ class OrdersController extends Controller
                 $order = [
                     'out_trade_no' => $orders->order_id,
                     'total_amount' => $real_price,
-                    'subject' => '葡萄商城购物 - ' . $real_price . '元',
+                    'subject' => '我的商城购物 - ' . $real_price . '元',
                 ];
                 $alipay = Pay::alipay($this->config_v1)->app($order);
                 return $this->getResponse($alipay->getContent());
@@ -884,7 +884,7 @@ class OrdersController extends Controller
                 $order = [
                     'out_trade_no' => $orders->order_id,
                     'total_fee' => ($real_price * 100),
-                    'body' => '葡萄商城购物 - ' . $real_price . '元',
+                    'body' => '我的商城购物 - ' . $real_price . '元',
                 ];
                 $this->wechat_config['notify_url'] = 'http://api.36qq.com/api/shop_wechat_pay_now_wuhang_v1';
                 $pay = Pay::wechat($this->wechat_config)->app($order);
@@ -897,7 +897,7 @@ class OrdersController extends Controller
                 $order = [
                     'out_trade_no' => $orders->order_id,
                     'total_fee' => ($real_price * 100),
-                    'body' => '葡萄商城购物 - ' . $real_price . '元',
+                    'body' => '我的商城购物 - ' . $real_price . '元',
                 ];
                 $this->wechat_config['notify_url'] = 'http://api.36qq.com/api/shop_wechat_pay_now_wuhang_v1';
                 $pay = Pay::wechat($this->wechat_config)->app($order);
@@ -1113,7 +1113,7 @@ class OrdersController extends Controller
 //                $order = [
 //                    'out_trade_no' => $orders->order_id,
 //                    'total_amount' => $real_price,
-//                    'subject' => '葡萄商城购物 - ' . $real_price . '元',
+//                    'subject' => '我的商城购物 - ' . $real_price . '元',
 //                ];
 //                $alipay = Pay::alipay($this->config_v1)->app($order);
 //                return $this->getResponse($alipay->getContent());
@@ -1130,7 +1130,7 @@ class OrdersController extends Controller
 //                $order = [
 //                    'out_trade_no' => $orders->order_id,
 //                    'total_amount' => $real_price,
-//                    'subject' => '葡萄商城购物 - ' . $real_price . '元',
+//                    'subject' => '我的商城购物 - ' . $real_price . '元',
 //                ];
 //                $alipay = Pay::alipay($this->config_v1)->app($order);
 //                return $this->getResponse($alipay->getContent());
@@ -1334,7 +1334,7 @@ class OrdersController extends Controller
 //                $order = [
 //                    'out_trade_no' => $orders->order_id,
 //                    'total_fee' => ($real_price * 100),
-//                    'body' => '葡萄商城购物 - ' . $real_price . '元',
+//                    'body' => '我的商城购物 - ' . $real_price . '元',
 //                ];
 //                $this->wechat_config['notify_url'] = 'http://api.36qq.com/api/shop_wechat_pay_now_wuhang_v1';
 //                $pay = Pay::wechat($this->wechat_config)->app($order);
@@ -1350,7 +1350,7 @@ class OrdersController extends Controller
 //                $order = [
 //                    'out_trade_no' => $orders->order_id,
 //                    'total_fee' => ($real_price * 100),
-//                    'body' => '葡萄商城购物 - ' . $real_price . '元',
+//                    'body' => '我的商城购物 - ' . $real_price . '元',
 //                ];
 //                $this->wechat_config['notify_url'] = 'http://api.36qq.com/api/shop_wechat_pay_now_wuhang_v1';
 //                $pay = Pay::wechat($this->wechat_config)->app($order);

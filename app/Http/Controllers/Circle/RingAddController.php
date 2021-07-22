@@ -109,7 +109,7 @@ class RingAddController extends Controller
             if ($arrRequest['buy_type'] == 1) {
                 if ($add_price_ptb <> 0) {
                     if ($user_account->extcredits4 < $add_price_ptb) {
-                        return $this->getInfoResponse('4000', '葡萄币不足！');
+                        return $this->getInfoResponse('4000', '我的币不足！');
                     }
                 }
                 if ($add_price_ptb > 0) {
@@ -120,7 +120,7 @@ class RingAddController extends Controller
                 }
                 $add->overOrder($order_id);
                 DB::commit();
-                return $this->getResponse('葡萄币支付成功！');
+                return $this->getResponse('我的币支付成功！');
             }
             if ($arrRequest['buy_type'] == 2) {
                 $order = [

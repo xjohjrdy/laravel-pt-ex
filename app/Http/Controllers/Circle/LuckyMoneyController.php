@@ -120,7 +120,7 @@ class LuckyMoneyController extends Controller
             if ($buy_type == 3) {
             }
             if ($buy_type == 2 && $app_id != 1694511) {
-                return $this->getInfoResponse('3001', '支付宝正在升级中，请先用微信或者葡萄币支付！');
+                return $this->getInfoResponse('3001', '支付宝正在升级中，请先用微信或者我的币支付！');
             }
 
             if ($price > 200) {
@@ -152,7 +152,7 @@ class LuckyMoneyController extends Controller
             }
             $ring_host_ptb = round($price_ptb * $if_rate);
             if (($number - $if_population) > ($price_ptb - $ring_host_ptb)) {
-                return $this->getInfoResponse('3001', '红包个数过多,' . $price_ptb . '葡萄币最多发' . ($price_ptb - $ring_host_ptb) . '个红包');
+                return $this->getInfoResponse('3001', '红包个数过多,' . $price_ptb . '我的币最多发' . ($price_ptb - $ring_host_ptb) . '个红包');
             }
 
             if ($number < $if_population + 1) {
@@ -676,7 +676,7 @@ class LuckyMoneyController extends Controller
             $ring_host_ptb = round($red_price * 0.1 * 10);
 
             if (!empty($circle_info->app_id)) {
-                $this->log('开始添加红包记录，并给圈主分葡萄币');
+                $this->log('开始添加红包记录，并给圈主分我的币');
                 $red_user_info = AppUserInfo::find($circle_info->app_id);
                 $red_time_value['red_id'] = $red_id;
                 $red_time_value['from_app_id'] = $app_id;
@@ -794,7 +794,7 @@ class LuckyMoneyController extends Controller
             $ring_host_ptb = round($red_price * 0.1 * 10);
 
             if (!empty($circle_info->app_id)) {
-                $this->weLog('开始添加红包记录，并给圈主分葡萄币');
+                $this->weLog('开始添加红包记录，并给圈主分我的币');
                 $red_user_info = AppUserInfo::find($circle_info->app_id);
                 $red_time_value['red_id'] = $red_id;
                 $red_time_value['from_app_id'] = $app_id;

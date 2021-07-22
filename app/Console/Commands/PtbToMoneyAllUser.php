@@ -67,8 +67,8 @@ class PtbToMoneyAllUser extends Command
                 }
                 $app_id = $app_user['pt_id'];
                 $change_log = $this->ptMoneyModel->getLogByAppId($app_id);
-                $ptb = $item['extcredits4']; # 葡萄币数量
-                if($ptb <= 0){ // 如果用户葡萄币小于等于0 直接跳过
+                $ptb = $item['extcredits4']; # 我的币数量
+                if($ptb <= 0){ // 如果用户我的币小于等于0 直接跳过
                     continue;
                 }
                 $money = $ptb / 10;

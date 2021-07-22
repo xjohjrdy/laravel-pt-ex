@@ -180,13 +180,13 @@ class OtherCardMaidOld extends Command
 
     /**
      * 分佣逻辑计算
-     * @param $userId 葡萄用户ID
+     * @param $userId 我的用户ID
      * @param $money 拿去分佣的金额
      * @param $orderId 分佣订单ID
      */
     public function subCommission($userId, $money, $orderId)
     {
-        $user_queue = []; // 定义循环发送葡萄币的用户序列
+        $user_queue = []; // 定义循环发送我的币的用户序列
         $userInfo = $this->getParentInfo($userId);
         $direct_parent_user = $this->getParentInfo($userInfo['pt_pid']); // 查找父级
         if (!empty($direct_parent_user)) {

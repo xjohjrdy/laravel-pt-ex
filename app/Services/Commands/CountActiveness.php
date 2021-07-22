@@ -161,7 +161,7 @@ class CountActiveness
     }
 
     /**
-     * 统计新版葡萄通讯所有充值订单
+     * 统计新版我的通讯所有充值订单
      * @return \Illuminate\Support\Collection
      */
     public function countNewPtbActive()

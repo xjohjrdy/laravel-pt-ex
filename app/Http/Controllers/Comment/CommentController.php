@@ -217,7 +217,7 @@ class CommentController extends Controller
                 $name = '心选购小助手';
                 $header = 'http://cdnwhwy.36qq.com/circle/images/logo.png';
             } else {
-                $name = '葡萄小助手';
+                $name = '我的小助手';
                 $header = 'http://cdnwhwy.36qq.com/circle/images/logo.png';
             }
 

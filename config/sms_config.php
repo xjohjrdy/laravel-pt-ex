@@ -10,7 +10,7 @@ return [
     'appkey' => "LTAI4G5VuTorjZZdFuupQoDN",
     'secretKey' => "n4t3BDMx3ckyz8bT2rRunO62vH23RQ",
 
-    'sign_name'=>'葡萄浏览器',
+    'sign_name'=>'我的浏览器',
     'sms_code'=>[
         'register'=>'SMS_99560021',
         'reset_password'=>'SMS_99560021',

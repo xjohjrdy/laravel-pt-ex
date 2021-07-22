@@ -309,7 +309,7 @@ class DisplayController extends Controller
                 'tomorrow' => '明日预告',
                 'yesterday' => '往日商品',
                 'hot' => '爆品推荐',
-                'img_slogan_one' => '葡萄爆款商城- 好物超值限量！',
+                'img_slogan_one' => '我的爆款商城- 好物超值限量！',
                 'img_slogan_two' => '长按图片，扫码抢购',
                 'qr_code_url' => 'http://a001.p17t.com/share_register/#/?id=',
                 'share_url' => empty($share_url) ? 'http://api_new.36qq.com' : $share_url,

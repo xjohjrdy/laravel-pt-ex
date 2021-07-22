@@ -39,9 +39,9 @@ class HasReadController extends Controller
                 $changeModel->where(['app_id' => $app_id])->update([
                     'status' => 1,
                 ]);
-//                return $this->getInfoResponse(600, '葡萄币合并为余额，账号剩余的' . $log['pt'] . '个葡萄币已准入到余额中，详情请查【余额变更明细】！');
+//                return $this->getInfoResponse(600, '我的币合并为余额，账号剩余的' . $log['pt'] . '个我的币已准入到余额中，详情请查【余额变更明细】！');
                 return $this->getInfoResponse(600, '
-                你好，为了提升用户体验，我们已将葡萄币合并到余额，您账号是' . $log['pt'] . '个葡萄币已按' . $log['money'] . '元转入到余额中；之后所有收益都将累计到余额中；
+                你好，为了提升用户体验，我们已将我的币合并到余额，您账号是' . $log['pt'] . '个我的币已按' . $log['money'] . '元转入到余额中；之后所有收益都将累计到余额中；
                 ');
             } else {
                 return $this->getResponse('用户已读');

@@ -242,7 +242,7 @@ class TestFunction extends Command
         if (empty($re_obj_user->user_name)) {
             $re_obj_user->user_name = 'ID：' . $re_obj_user->id;
         }
-        $n_data['notify'] = "{$re_obj_user->user_name} 花费 " . ($order_info->money * 10) . "葡萄币，抢购了您的“{$circle_info->ico_title}”圈子！";
+        $n_data['notify'] = "{$re_obj_user->user_name} 花费 " . ($order_info->money * 10) . "我的币，抢购了您的“{$circle_info->ico_title}”圈子！";
         $n_data['to_id'] = $circle_id;
         $n_data['type'] = 3;
         $obj_notify->addNotify($n_data);

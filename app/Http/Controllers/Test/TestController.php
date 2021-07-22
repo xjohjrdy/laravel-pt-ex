@@ -263,7 +263,7 @@ class TestController extends Controller
             $res_body_html = preg_replace('/<div class=\"\" data-backend-compiled=\"\">(.|\n)+?<\/div>/', ' ', $res_body_html);
             $res_body_html = preg_replace('/<h2 class=\"am-text-primary\">(.|\n)+?<\/h2>/', ' ', $res_body_html);
             $res_body_html = preg_replace('/<h1 class=\"am-header-title\">(.|\n)+?<\/h1>/', ' ', $res_body_html);
-            $res_body_html = preg_replace('/<p class=\"am-article-meta\">(.|\n)+?<\/p>/', '<p class="am-article-meta">' . date('Y-m-d H:i:s', time()) . ' &nbsp;&nbsp;葡萄浏览器</p>', $res_body_html);
+            $res_body_html = preg_replace('/<p class=\"am-article-meta\">(.|\n)+?<\/p>/', '<p class="am-article-meta">' . date('Y-m-d H:i:s', time()) . ' &nbsp;&nbsp;我的浏览器</p>', $res_body_html);
             $res_body_html = preg_replace('/<div class=\"am-footer-switch\">(.|\n)+<\/div>/', ' ', $res_body_html);
             $is_need_jump = $article->getCanUseArticle('yzwb_wuhang' . $v['id']);
             if ($is_need_jump) {

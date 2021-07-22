@@ -346,7 +346,7 @@
                 <div class="img"><img src="{!! $avatar !!}" onerror="this.src='https://a119112.oss-cn-beijing.aliyuncs.com/%E5%8D%9E%E8%B4%A4%E9%93%83/common/images/logo.png'"/></div>
                 <div class="text">
                     <p>{!! $user_name !!}（ID为<em id="input_value"></em>）</p>
-                    <p>邀请你加入葡萄浏览器</p>
+                    <p>邀请你加入我的浏览器</p>
                 </div>
                 <input id="parent_id" {!! empty($parent_id)?"":"readonly" !!} name="parent_id"
                        value="{!! $parent_id !!}" hidden/>
@@ -489,7 +489,7 @@
                         <option value="48">波兰</option>
                         <option value="508">圣彼埃尔和密克隆岛</option>
                         <option value="1787">波多黎各</option>
-                        <option value="351">葡萄牙</option>
+                        <option value="351">我的牙</option>
                         <option value="680">帕劳</option>
                         <option value="595">巴拉圭</option>
                         <option value="974">卡塔尔</option>
@@ -588,7 +588,7 @@
             <div class="d3">
                 <input id="agreement" checked type="checkbox">
                 <span></span>
-                <a href="xin_user_agreementr" target="_blank">阅读并接收《葡萄浏览器用户协议》</a>
+                <a href="xin_user_agreementr" target="_blank">阅读并接收《我的浏览器用户协议》</a>
             </div>
             <a id="form-submit" class="complete font30" onclick="submitForm()">立即注册</a>
         </div>
@@ -714,7 +714,7 @@
     //奖励100的弹层消失
     function hideSendLayer() {
         $('.send_layer').hide();
-        layer.confirm('是否前往下载[葡萄浏览器APP]？', {
+        layer.confirm('是否前往下载[我的浏览器APP]？', {
             btn: ['是', '否'] //按钮
         }, function () {
             window.location.href = download;
@@ -879,7 +879,7 @@
                     if (data.parent_id > 0) {
                         $(".send_layer").show();
                     } else {
-                        layer.confirm('是否前往下载[葡萄浏览器APP]？', {
+                        layer.confirm('是否前往下载[我的浏览器APP]？', {
                             btn: ['是', '否'] //按钮
                         }, function () {
                             window.location.href = download;

@@ -318,7 +318,7 @@ class HeMeToController extends Controller
             $ring_host_ptb = round($red_price * 0.1 * 10);
 
             if (!empty($circle_info->app_id)) {
-                $this->log('开始添加红包记录，并给圈主分葡萄币', 'circle_send');
+                $this->log('开始添加红包记录，并给圈主分我的币', 'circle_send');
                 $red_user_info = AppUserInfo::find($circle_info->app_id);
                 $red_time_value['red_id'] = $red_id;
                 $red_time_value['from_app_id'] = $app_id;
@@ -496,7 +496,7 @@ class HeMeToController extends Controller
                 if (empty($re_obj_user->user_name)) {
                     $re_obj_user->user_name = 'ID：' . $re_obj_user->id;
                 }
-                $n_data['notify'] = "{$re_obj_user->user_name} 花费 " . ($actual * 10) . "葡萄币，抢购了您的“{$circle_info->ico_title}”圈子！";
+                $n_data['notify'] = "{$re_obj_user->user_name} 花费 " . ($actual * 10) . "我的币，抢购了您的“{$circle_info->ico_title}”圈子！";
                 $n_data['to_id'] = $circle_id;
                 $n_data['type'] = 3;
                 $obj_notify->addNotify($n_data);

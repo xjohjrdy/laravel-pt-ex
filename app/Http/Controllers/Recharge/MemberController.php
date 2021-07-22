@@ -116,7 +116,7 @@ class MemberController extends Controller
                 throw new ApiException('请求错误', 5001);
             }
             if ($arrParams['gid'] == '74') {
-                throw new ApiException('葡萄商城购买礼包赠送超级用户价格不变！建议使用葡萄商城', 5555);
+                throw new ApiException('我的商城购买礼包赠送超级用户价格不变！建议使用我的商城', 5555);
             }
             if ($arrParams['type'] == 3) {
                 return $this->getInfoResponse('1002', '暂不支持微信支付！');
@@ -132,7 +132,7 @@ class MemberController extends Controller
             list($order_id, $price, $desc) = $rechargeUserLevel->installOrder($arrParams['type']);
             if ($arrParams['type'] == 2) {
 
-                return $this->getInfoResponse('1002', '支付宝模块更新中!请使用葡萄币或者微信支付！');
+                return $this->getInfoResponse('1002', '支付宝模块更新中!请使用我的币或者微信支付！');
                 $order = [
                     'out_trade_no' => $order_id,
                     'total_amount' => $price,
@@ -276,7 +276,7 @@ class MemberController extends Controller
                 $ad_user_info = AdUserInfo::where(['pt_id' => $app_id])->first();
                 $user_account = $userAccount->getUserAccount($ad_user_info->uid);
                 if ($user_account->extcredits4 < $obj_data->pay_price * 10) {
-                    return $this->getInfoResponse('3001', '葡萄币余额不足！');
+                    return $this->getInfoResponse('3001', '我的币余额不足！');
                 }
 
                 $params = [
@@ -456,8 +456,8 @@ class MemberController extends Controller
     }
 
     /**
-     * 通过用户 app_id 扣除相应葡萄币，并记录日志
-     * $value 为葡萄币值
+     * 通过用户 app_id 扣除相应我的币，并记录日志
+     * $value 为我的币值
      * （独立方法，可直接调用）
      * @param $app_id
      * @param $value

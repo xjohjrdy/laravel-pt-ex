@@ -123,7 +123,7 @@ class PackageController extends Controller
                 $ad_user_info = AdUserInfo::where(['pt_id' => $app_id])->first();
                 $user_account = $userAccount->getUserAccount($ad_user_info->uid);
                 if ($user_account->extcredits4 < $obj_data->pay_price * 10) {
-                    return $this->getInfoResponse('3001', '葡萄币余额不足！');
+                    return $this->getInfoResponse('3001', '我的币余额不足！');
                 }
 
 //                $params = [

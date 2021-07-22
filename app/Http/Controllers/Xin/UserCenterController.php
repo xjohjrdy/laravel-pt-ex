@@ -178,7 +178,7 @@ class UserCenterController extends Controller
             $arr_number_money_money = empty($data_obj_start_page_index) ? 0 : $data_obj_start_page_index->shop_all_sum;
             $arr_number_money_money = $arr_number_money_money + $arr_number_money->money;
 
-            //葡萄通讯总额改为脚本计算总额 + 脚本跑完时间之后的统计值
+            //我的通讯总额改为脚本计算总额 + 脚本跑完时间之后的统计值
             $obj_new_voip_money = new AdUserInfo();
             $num_sum_voip_money = 0;
             $voip_money_new = $obj_new_voip_money->getNewVoipMoney($app_id, $str_command_time);
@@ -201,7 +201,7 @@ class UserCenterController extends Controller
                     'title' => '团队超级用户数',
                     'value' => $int_vip_number * 1
                 ], [
-                    'title' => '新版葡萄通讯总额',
+                    'title' => '新版我的通讯总额',
                     'value' => round($num_sum_voip_money * 1, 2)
                 ],
             ];

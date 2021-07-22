@@ -47,7 +47,7 @@ class CommonFunction
         $accessKeySecret = "n4t3BDMx3ckyz8bT2rRunO62vH23RQ";
 
         $params["PhoneNumbers"] = $phone;
-        $params["SignName"] = "葡萄浏览器";
+        $params["SignName"] = "我的浏览器";
         $params["TemplateCode"] = "SMS_99560021";
         $params['TemplateParam'] = Array(
             "code" => $code
@@ -85,7 +85,7 @@ class CommonFunction
         $accessKeySecret = "n4t3BDMx3ckyz8bT2rRunO62vH23RQ";
 
         $params["PhoneNumbers"] = $phone;
-        $params["SignName"] = "葡萄浏览器";
+        $params["SignName"] = "我的浏览器";
         $params["TemplateCode"] = "SMS_140730505";
         $params['TemplateParam'] = Array(
             "code" => $code,

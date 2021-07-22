@@ -134,7 +134,7 @@ class CountEverydayActiveTemp extends Command
                 $active_value = $register_number;
                 $obj_order->addUserActive($num_app_id, 5, $active_value);
 
-                /**********= 统计葡萄商城活跃度 type:6 =**********/
+                /**********= 统计我的商城活跃度 type:6 =**********/
                 $monetary = $obj_order->getMonetary($num_app_id, $begin_time_string, $end_time_string);
                 $active_value = round($monetary * 0.05, 2);
                 $obj_order->addUserActive($num_app_id, 6, $active_value);
@@ -144,7 +144,7 @@ class CountEverydayActiveTemp extends Command
                 $active_value = $agent_order_number * 2;
                 $obj_order->addUserActive($num_app_id, 0, $active_value);
 
-                /**********= 统计葡萄通讯活跃度 type:2 =**********/
+                /**********= 统计我的通讯活跃度 type:2 =**********/
                 $active_value = 0;
                 $obj_order->addUserActive($num_app_id, 2, $active_value);
 

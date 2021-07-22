@@ -46,7 +46,7 @@ class ArticleInfo extends Model
      * `userid`, 用户username
      * `wcount`, 阅读量
      * `addtime`,添加时间
-     * `gongzhonghao`, 葡萄浏览器
+     * `gongzhonghao`, 我的浏览器
      * `infoid`,文章唯一标示， time().rand(10,1000)
      * `daili`, 默认：'system'
      * `share_pic`, image_proxy.php?1=1&siteid=1&url=  "img的链接"
@@ -69,7 +69,7 @@ class ArticleInfo extends Model
             'adlink' => $ad->ad_link,
             'userid' => $username,
             'addtime' => date('Y-m-d H:i:s', time()),
-            'gongzhonghao' => '葡萄浏览器',
+            'gongzhonghao' => '我的浏览器',
             'infoid' => time() . rand(10, 1000),
             'daili' => 'system',
             'share_pic' => 'image_proxy.php?1=1&siteid=1&url=' . $article->list_img,
@@ -97,7 +97,7 @@ class ArticleInfo extends Model
 
 
     /**
-     * 增加葡萄币金额
+     * 增加我的币金额
      * @param int $value
      * @return int
      */

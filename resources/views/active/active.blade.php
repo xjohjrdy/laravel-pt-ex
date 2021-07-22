@@ -9,7 +9,7 @@
         <span style=";font-size:14px">2<span>、本人成为VIP会员、及每直推一名VIP会员+2分（月封顶30分）</span><span>；</span></span>
     </p>
     {{--<p style="text-align: left;">--}}
-        {{--<span style=";font-size:14px">3<span>、本人及直推用户每购买一笔葡萄通讯话费+1分（月封顶20分）</span><span>；</span></span>--}}
+        {{--<span style=";font-size:14px">3<span>、本人及直推用户每购买一笔我的通讯话费+1分（月封顶20分）</span><span>；</span></span>--}}
     {{--</p>--}}
     <p style="text-align: left;">
         <span style=";font-size:14px">3<span>、本人及直推用户报销每增加1元报销+0.1分（月封顶40分）</span><span>；</span></span>
@@ -18,7 +18,7 @@
         <span style=";font-size:14px">4<span>、直推用户新增1人奖励1分（月封顶20分）</span><span>；</span></span>
     </p>
     <p style="text-align: left;">
-        <span style=";font-size:14px">5<span>、本人及直推用户购买葡萄爆款商城购物1元+0.05分（月封顶10分）</span><span>；</span></span>
+        <span style=";font-size:14px">5<span>、本人及直推用户购买我的爆款商城购物1元+0.05分（月封顶10分）</span><span>；</span></span>
     </p>
     <p style="text-align: left;">
         <span style=";font-size:14px">6<span>、本人或直推用户首次购买圈子（即600购买，不包括后续竞价购买、免费赠送）。1个圈子活跃值奖励2分（月封顶30分）</span><span>；</span></span>

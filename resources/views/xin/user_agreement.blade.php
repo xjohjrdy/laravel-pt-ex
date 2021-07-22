@@ -66,7 +66,7 @@
                 <img src="http://putaoliulanqi1.oss-cn-zhangjiakou.aliyuncs.com/logo/logo.png">
             </div>
             <div class="d1_right">
-                <p class="p1 font28">葡萄浏览器</p>
+                <p class="p1 font28">我的浏览器</p>
             </div>
         </div>
         <div class="d2">

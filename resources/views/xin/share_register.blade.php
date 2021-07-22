@@ -263,7 +263,7 @@
                     <option value="48">波兰</option>
                     <option value="508">圣彼埃尔和密克隆岛</option>
                     <option value="1787">波多黎各</option>
-                    <option value="351">葡萄牙</option>
+                    <option value="351">我的牙</option>
                     <option value="680">帕劳</option>
                     <option value="595">巴拉圭</option>
                     <option value="974">卡塔尔</option>
@@ -392,7 +392,7 @@
             </div>
             <div class="d3">
                 <input id="agreement" checked type="checkbox">
-                <a href="xin_user_agreementr" target="_blank">阅读并接收《葡萄浏览器用户协议》</a>
+                <a href="xin_user_agreementr" target="_blank">阅读并接收《我的浏览器用户协议》</a>
             </div>
             <a id="form-submit" class="complete font30" onclick="submitForm()">完成</a>
         </div>
@@ -515,7 +515,7 @@
     //奖励100的弹层消失
     function hideSendLayer() {
         $('.send_layer').hide();
-        layer.confirm('是否前往下载[葡萄浏览器APP]？', {
+        layer.confirm('是否前往下载[我的浏览器APP]？', {
             btn: ['是', '否'] //按钮
         }, function () {
             window.location.href = download;
@@ -680,7 +680,7 @@
                     if (data.parent_id > 0) {
                         $(".send_layer").show();
                     } else {
-                        layer.confirm('是否前往下载[葡萄浏览器APP]？', {
+                        layer.confirm('是否前往下载[我的浏览器APP]？', {
                             btn: ['是', '否'] //按钮
                         }, function () {
                             window.location.href = download;

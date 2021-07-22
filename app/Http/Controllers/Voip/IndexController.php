@@ -114,7 +114,7 @@ class IndexController extends Controller
      */
     public function index(Request $request, Call $call, UserCheckAllFunction $userCheckAllFunction, VoipMoneyOrder $voipMoneyOrder, VoipGpsInfo $voipGpsInfo)
     {
-//        return $this->getInfoResponse('4414', '葡萄通讯优化升级中，预计国庆节后恢复使用！');
+//        return $this->getInfoResponse('4414', '我的通讯优化升级中，预计国庆节后恢复使用！');
 
         try {
             if ($request->header('data')) {
@@ -143,7 +143,7 @@ class IndexController extends Controller
             $gps = empty($arrRequest['gps']) ? '' : $arrRequest['gps'];
 
             if ($user_id == 6080694) {
-                return $this->getInfoResponse('4674', '为了提升更好的服务，葡萄通讯当前正在升级中，预计8月升级完成，请耐心等待哦！');
+                return $this->getInfoResponse('4674', '为了提升更好的服务，我的通讯当前正在升级中，预计8月升级完成，请耐心等待哦！');
             }
 
             $voipGpsInfo->create(['app_id' => $user_id, 'gps' => $gps]);
@@ -152,7 +152,7 @@ class IndexController extends Controller
             $info_is_wechat = $wechatInfo->getAppId($user_id);
 
             if (empty($info_is_wechat)) {
-                return $this->getInfoResponse('4444', '为了提供更好的服务，葡萄通讯升级中，升级后需先到【个人中心】-关联微信才能继续使用葡萄通讯');
+                return $this->getInfoResponse('4444', '为了提供更好的服务，我的通讯升级中，升级后需先到【个人中心】-关联微信才能继续使用我的通讯');
             }
             $call->user_id = $user_id;
             $obj_voip_account = new VoipAccount();
@@ -171,7 +171,7 @@ class IndexController extends Controller
                 if (empty($is_white)) {
                     $user_check_all_function = $userCheckAllFunction->getOne($user_id);
                     if (empty($user_check_all_function) || $user_check_all_function->is_bind != 1) {
-                        return $this->getInfoResponse('4674', '为了提升更好的服务，葡萄通讯当前正在升级中，预计8月升级完成，请耐心等待哦！');
+                        return $this->getInfoResponse('4674', '为了提升更好的服务，我的通讯当前正在升级中，预计8月升级完成，请耐心等待哦！');
                     }
                 }
             }

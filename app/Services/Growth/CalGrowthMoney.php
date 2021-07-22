@@ -62,7 +62,7 @@ class CalGrowthMoney
             $user = $this->adUserModel->getUserById($item['uid']); // uid 转 pt_id 及 app_id;
             $appUser = $this->appUserModel->getUserById($order['app_id']); // 查找该用户上级
             if ($user['pt_id'] == $appUser['parent_id']) { // 如果相等，则是直推收入，如果不相当则是三级以外，称之服务费
-                $this->growthUserModel->createOrUpdateColumn($user['pt_id'], $this->month, 'growth_sale_one', $item['money'] / 10); // 单位葡萄币
+                $this->growthUserModel->createOrUpdateColumn($user['pt_id'], $this->month, 'growth_sale_one', $item['money'] / 10); // 单位我的币
             } else {
                 $this->growthUserModel->createOrUpdateColumn($user['pt_id'], $this->month, 'growth_sale_two', $item['money'] / 10);
             }
@@ -81,7 +81,7 @@ class CalGrowthMoney
             $order = $circleOrderModel->getByOrderId($item['order_id']);
             $appUser = $this->appUserModel->getUserById($order['app_id']);
             if ($item['app_id'] == $appUser['parent_id']) { // 如果相等，则是直推收入，如果不相当则是三级以外，称之服务费
-                $this->growthUserModel->createOrUpdateColumn($item['app_id'], $this->month, 'growth_circle_one', $item['money'] / 10); // 单位葡萄币
+                $this->growthUserModel->createOrUpdateColumn($item['app_id'], $this->month, 'growth_circle_one', $item['money'] / 10); // 单位我的币
             } else {
                 $this->growthUserModel->createOrUpdateColumn($item['app_id'], $this->month, 'growth_circle_two', $item['money'] / 10);
             }
@@ -146,7 +146,7 @@ class CalGrowthMoney
         $cardMaids = $cardMaidModel->where(['type' => 2])->whereBetween('created_at', [$this->begin_time, $this->end_time])->get();
         foreach ($cardMaids as $key => $item) {
             if ($item['app_id'] == $item['from_app_id']) { // 如果相等，则是直推收入，如果不相当则是三级以外，称之服务费
-                $this->growthUserModel->createOrUpdateColumn($item['app_id'], $this->month, 'growth_card_one', $item['maid_ptb'] / 10); // 单位葡萄比
+                $this->growthUserModel->createOrUpdateColumn($item['app_id'], $this->month, 'growth_card_one', $item['maid_ptb'] / 10); // 单位我的比
             } else {
                 $this->growthUserModel->createOrUpdateColumn($item['app_id'], $this->month, 'growth_card_two', $item['maid_ptb'] / 10);
             }
@@ -168,7 +168,7 @@ class CalGrowthMoney
             }
             $appUser = $this->appUserModel->getUserById($order['app_id']); // 查找该用户上级
             if ($item['app_id'] == $appUser['parent_id']) { // 如果相等，则是直推收入，如果不相当则是三级以外，称之服务费
-                $this->growthUserModel->createOrUpdateColumn($item['app_id'], $this->month, 'growth_shop_one', $item['money'] / 10); // 单位葡萄比
+                $this->growthUserModel->createOrUpdateColumn($item['app_id'], $this->month, 'growth_shop_one', $item['money'] / 10); // 单位我的比
             } else {
                 $this->growthUserModel->createOrUpdateColumn($item['app_id'], $this->month, 'growth_shop_two', $item['money'] / 10);
             }
@@ -191,7 +191,7 @@ class CalGrowthMoney
             $user = $this->adUserModel->getUserById($item['uid']); // uid 转 pt_id 及 app_id;
             $appUser = $this->appUserModel->getUserById($order['app_id']); // 查找该用户上级
             if ($user['pt_id'] == $appUser['parent_id']) { // 如果相等，则是直推收入，如果不相当则是三级以外，称之服务费
-                $this->growthUserModel->createOrUpdateColumn($user['pt_id'], $this->month, 'growth_sale_one', $item['money'] / 10); // 单位葡萄比
+                $this->growthUserModel->createOrUpdateColumn($user['pt_id'], $this->month, 'growth_sale_one', $item['money'] / 10); // 单位我的比
             } else {
                 $this->growthUserModel->createOrUpdateColumn($user['pt_id'], $this->month, 'growth_sale_two', $item['money'] / 10);
             }

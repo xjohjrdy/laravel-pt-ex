@@ -128,11 +128,11 @@
                 <input type="checkbox" value="1" id="checkboxFourInput1" name=""/>
                 <label for="checkboxFourInput1"></label>
             </div>
-            使用葡萄币<span style="color: #999;margin-left: 20px;">共{{$order_detail['account_ptb']}}葡萄币</span><span
-                    style="float: right; margin-right: 10px;">-{{$order_detail['deduct_ptb']}}葡萄币</span></div>
+            使用我的币<span style="color: #999;margin-left: 20px;">共{{$order_detail['account_ptb']}}我的币</span><span
+                    style="float: right; margin-right: 10px;">-{{$order_detail['deduct_ptb']}}我的币</span></div>
     </div>
     <div class="my_goods_list">
-        {{--<div class="commodity_list" style="font-size: 16px; line-height: 50px;">全部使用支付宝支付（如果勾选葡萄币，则会优先扣除葡萄币）<span--}}
+        {{--<div class="commodity_list" style="font-size: 16px; line-height: 50px;">全部使用支付宝支付（如果勾选我的币，则会优先扣除我的币）<span--}}
                     {{--style="float: right; margin-right: 10px; color: #dc141f;">￥&nbsp;{{$order_detail['all_price']}}</span></div>--}}
 
         <div class="commodity_list" style="line-height: 50px; position: relative; margin-bottom: 10px;">

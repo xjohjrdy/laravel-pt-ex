@@ -205,9 +205,9 @@ class CheckupController extends Controller
             case 0:
                 $user_account = $userAccount->getUserAccount($ad_user_info->uid);
 
-                return $this->getInfoResponse('3001', '不支持葡萄币');
+                return $this->getInfoResponse('3001', '不支持我的币');
                 if ($user_account->extcredits4 < $cb_oriprice * 10) {
-                    return $this->getInfoResponse('3001', '葡萄币余额不足！');
+                    return $this->getInfoResponse('3001', '我的币余额不足！');
                 }
                 $params = [
                     'app_id' => $app_id,
@@ -285,9 +285,9 @@ class CheckupController extends Controller
                 break;
             case 1:
                 $user_account = $userAccount->getUserAccount($ad_user_info->uid);
-                return $this->getInfoResponse('3001', '不支持葡萄币');
+                return $this->getInfoResponse('3001', '不支持我的币');
                 if ($user_account->extcredits4 > $cb_oriprice * 10) {
-                    return $this->getInfoResponse('3001', '葡萄币充足，不可使用混合支付方式！');
+                    return $this->getInfoResponse('3001', '我的币充足，不可使用混合支付方式！');
                 }
 
                 $remaining = $cb_oriprice - ($user_account->extcredits4 / 10);
@@ -317,7 +317,7 @@ class CheckupController extends Controller
                 $hospitalTestOrders->addOrder($params);
                 $ali_value['out_trade_no'] = $out_order_no;
                 $ali_value['total_amount'] = $cb_oriprice;
-                $ali_value['subject'] = '葡萄医疗 - 剩余支付 - ' . $cb_oriprice . '元';
+                $ali_value['subject'] = '我的医疗 - 剩余支付 - ' . $cb_oriprice . '元';
                 $ali_secret = Pay::alipay(config('medical.ali_config'))->app($ali_value);
                 return $this->getResponse($ali_secret->getContent());
                 break;
@@ -348,15 +348,15 @@ class CheckupController extends Controller
                 $hospitalTestOrders->addOrder($params);
                 $ali_value['out_trade_no'] = $out_order_no;
                 $ali_value['total_amount'] = $cb_oriprice;
-                $ali_value['subject'] = '葡萄医疗 - ' . $cb_oriprice . '元';
+                $ali_value['subject'] = '我的医疗 - ' . $cb_oriprice . '元';
                 $ali_secret = Pay::alipay(config('medical.ali_config'))->app($ali_value);
                 return $this->getResponse($ali_secret->getContent());
                 break;
             case 3:
                 $user_account = $userAccount->getUserAccount($ad_user_info->uid);
-                return $this->getInfoResponse('3001', '不支持葡萄币');
+                return $this->getInfoResponse('3001', '不支持我的币');
                 if ($user_account->extcredits4 > $cb_oriprice * 10) {
-                    return $this->getInfoResponse('3001', '葡萄币充足，不可使用混合支付方式！');
+                    return $this->getInfoResponse('3001', '我的币充足，不可使用混合支付方式！');
                 }
 
                 $remaining = $cb_oriprice - ($user_account->extcredits4 / 10);
@@ -387,7 +387,7 @@ class CheckupController extends Controller
                 $order = [
                     'out_trade_no' => $out_order_no,
                     'total_fee' => ($cb_oriprice * 100),
-                    'body' => '葡萄医疗 - ' . $cb_oriprice . '元',
+                    'body' => '我的医疗 - ' . $cb_oriprice . '元',
                 ];
 
                 $this->wechat_config['notify_url'] = config('medical.we_config.notify_url');
@@ -423,7 +423,7 @@ class CheckupController extends Controller
                 $order = [
                     'out_trade_no' => $out_order_no,
                     'total_fee' => ($cb_oriprice * 100),
-                    'body' => '葡萄医疗 - ' . $cb_oriprice . '元',
+                    'body' => '我的医疗 - ' . $cb_oriprice . '元',
                 ];
 
                 $this->wechat_config['notify_url'] = config('medical.we_config.notify_url');
@@ -541,9 +541,9 @@ class CheckupController extends Controller
             case 0:
                 $user_account = $userAccount->getUserAccount($ad_user_info->uid);
 
-                return $this->getInfoResponse('3001', '不支持葡萄币');
+                return $this->getInfoResponse('3001', '不支持我的币');
                 if ($user_account->extcredits4 < $cb_oriprice * 10) {
-                    return $this->getInfoResponse('3001', '葡萄币余额不足！');
+                    return $this->getInfoResponse('3001', '我的币余额不足！');
                 }
                 $params = [
                     'app_id' => $app_id,
@@ -621,9 +621,9 @@ class CheckupController extends Controller
                 break;
             case 1:
                 $user_account = $userAccount->getUserAccount($ad_user_info->uid);
-                return $this->getInfoResponse('3001', '不支持葡萄币');
+                return $this->getInfoResponse('3001', '不支持我的币');
                 if ($user_account->extcredits4 > $cb_oriprice * 10) {
-                    return $this->getInfoResponse('3001', '葡萄币充足，不可使用混合支付方式！');
+                    return $this->getInfoResponse('3001', '我的币充足，不可使用混合支付方式！');
                 }
 
                 $remaining = $cb_oriprice - ($user_account->extcredits4 / 10);
@@ -653,7 +653,7 @@ class CheckupController extends Controller
                 $hospitalTestOrders->addOrder($params);
                 $ali_value['out_trade_no'] = $out_order_no;
                 $ali_value['total_amount'] = $cb_oriprice;
-                $ali_value['subject'] = '葡萄医疗 - 剩余支付 - ' . $cb_oriprice . '元';
+                $ali_value['subject'] = '我的医疗 - 剩余支付 - ' . $cb_oriprice . '元';
                 $ali_secret = Pay::alipay(config('medical.ali_config'))->app($ali_value);
                 return $this->getResponse($ali_secret->getContent());
                 break;
@@ -686,7 +686,7 @@ class CheckupController extends Controller
                 //改为禾盟通支付
 //                $ali_value['out_trade_no'] = $out_order_no;
 //                $ali_value['total_amount'] = $cb_oriprice;
-//                $ali_value['subject'] = '葡萄医疗 - ' . $cb_oriprice . '元';
+//                $ali_value['subject'] = '我的医疗 - ' . $cb_oriprice . '元';
 //                $ali_secret = Pay::alipay(config('medical.ali_config'))->app($ali_value);
 //                return $this->getResponse($ali_secret->getContent());
 
@@ -700,9 +700,9 @@ class CheckupController extends Controller
                 break;
             case 3:
                 $user_account = $userAccount->getUserAccount($ad_user_info->uid);
-                return $this->getInfoResponse('3001', '不支持葡萄币');
+                return $this->getInfoResponse('3001', '不支持我的币');
                 if ($user_account->extcredits4 > $cb_oriprice * 10) {
-                    return $this->getInfoResponse('3001', '葡萄币充足，不可使用混合支付方式！');
+                    return $this->getInfoResponse('3001', '我的币充足，不可使用混合支付方式！');
                 }
 
                 $remaining = $cb_oriprice - ($user_account->extcredits4 / 10);
@@ -733,7 +733,7 @@ class CheckupController extends Controller
                 $order = [
                     'out_trade_no' => $out_order_no,
                     'total_fee' => ($cb_oriprice * 100),
-                    'body' => '葡萄医疗 - ' . $cb_oriprice . '元',
+                    'body' => '我的医疗 - ' . $cb_oriprice . '元',
                 ];
 
                 $this->wechat_config['notify_url'] = config('medical.we_config.notify_url');
@@ -771,7 +771,7 @@ class CheckupController extends Controller
 //                $order = [
 //                    'out_trade_no' => $out_order_no,
 //                    'total_fee' => ($cb_oriprice * 100),
-//                    'body' => '葡萄医疗 - ' . $cb_oriprice . '元',
+//                    'body' => '我的医疗 - ' . $cb_oriprice . '元',
 //                ];
 //                $this->wechat_config['notify_url'] = config('medical.we_config.notify_url');
 //                $we_secret = Pay::wechat(config('medical.we_config'))->app($order);
@@ -901,9 +901,9 @@ class CheckupController extends Controller
                             'tj_time' => $order_info->in_time,
                             'tj_name' => $order_info->name,
                             'tj_ident' => $order_info->id_card,
-                            'error_reason' => '用户恶意消耗葡萄币，账户余额：' . $user_account->extcredits4 . '，订单需要葡萄币：' . $order_info->use_ptb
+                            'error_reason' => '用户恶意消耗我的币，账户余额：' . $user_account->extcredits4 . '，订单需要我的币：' . $order_info->use_ptb
                         ]);
-                        $this->log('用户恶意消耗葡萄币，账户余额：' . $user_account->extcredits4 . '，订单需要葡萄币：' . $order_info->use_ptb);
+                        $this->log('用户恶意消耗我的币，账户余额：' . $user_account->extcredits4 . '，订单需要我的币：' . $order_info->use_ptb);
                         $this->log('---------------end_error----------');
                         $params = [
                             'status' => 7,
@@ -959,7 +959,7 @@ class CheckupController extends Controller
                     ];
                     $this->log('更新订单为成功状态');
                     $md_medical_order->upOrder($order_id, $params);
-                    $this->log('开始扣除用户葡萄币');
+                    $this->log('开始扣除用户我的币');
                     $zhongKangServices->takePtb($order_info->app_id, $order_info->use_ptb);
                     break;
                 default:
@@ -1084,9 +1084,9 @@ class CheckupController extends Controller
                             'tj_time' => $order_info->in_time,
                             'tj_name' => $order_info->name,
                             'tj_ident' => $order_info->id_card,
-                            'error_reason' => '用户恶意消耗葡萄币，账户余额：' . $user_account->extcredits4 . '，订单需要葡萄币：' . $order_info->use_ptb
+                            'error_reason' => '用户恶意消耗我的币，账户余额：' . $user_account->extcredits4 . '，订单需要我的币：' . $order_info->use_ptb
                         ]);
-                        $this->weLog('用户恶意消耗葡萄币，账户余额：' . $user_account->extcredits4 . '，订单需要葡萄币：' . $order_info->use_ptb);
+                        $this->weLog('用户恶意消耗我的币，账户余额：' . $user_account->extcredits4 . '，订单需要我的币：' . $order_info->use_ptb);
                         $this->weLog('---------------end_error----------');
                         $params = [
                             'status' => 7,
@@ -1142,7 +1142,7 @@ class CheckupController extends Controller
                     ];
                     $this->weLog('更新订单为成功状态');
                     $md_medical_order->upOrder($order_id, $params);
-                    $this->weLog('开始扣除用户葡萄币');
+                    $this->weLog('开始扣除用户我的币');
                     $zhongKangServices->takePtb($order_info->app_id, $order_info->use_ptb);
                     break;
                 default:

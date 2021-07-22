@@ -35,7 +35,7 @@ class AdPackage
     }
 
     /**
-     * 葡萄币支付更新订单状态
+     * 我的币支付更新订单状态
      */
     public function updateOrderPayStatusByPtb($order_id, $app_id, $num, $price){
         try{
@@ -80,8 +80,8 @@ class AdPackage
 
     }
     /**
-     * 通过用户 app_id 扣除相应葡萄币，并记录日志
-     * $value 为葡萄币值
+     * 通过用户 app_id 扣除相应我的币，并记录日志
+     * $value 为我的币值
      * （独立方法，可直接调用）
      * @param $app_id
      * @param $value

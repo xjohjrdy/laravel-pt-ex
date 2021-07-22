@@ -113,7 +113,7 @@ class AdvertisementController extends Controller
             }
             $user = $adUserInfo->appToAdUserId($arrRequest['user_id']);
             if (empty($user)) {
-                return $this->getInfoResponse('4004', '请先使用广告联盟，才能获得葡萄币哦！');
+                return $this->getInfoResponse('4004', '请先使用广告联盟，才能获得我的币哦！');
             }
             $ad = $adInfo->getUserAd($user->uid, $arrRequest['ad_id']);
             if (empty($ad)) {
@@ -177,7 +177,7 @@ class AdvertisementController extends Controller
     }
 
     /**
-     * 点击广告，用户获得葡萄币奖励
+     * 点击广告，用户获得我的币奖励
      * put行为
      * /ad/123
      * 输入值：data : {"user_id": "3"}
@@ -203,7 +203,7 @@ class AdvertisementController extends Controller
             $count_log = $creditLog->getCountLog($user->uid, "PTG", $time);
             $time_check = time() - $log->dateline;
             if ($time_check < 86400 && $count_log >= 3) {
-                return $this->getResponse(['status' => "不符合赠送葡萄币情况", "url" => "https://a119112.oss-cn-beijing.aliyuncs.com/app_question/haibao/haibao.jpg"]);
+                return $this->getResponse(['status' => "不符合赠送我的币情况", "url" => "https://a119112.oss-cn-beijing.aliyuncs.com/app_question/haibao/haibao.jpg"]);
             }
             $userAccount->addPTBMoney(1, $user->uid);
             $account = $userAccount->getUserAccount($user->uid);
@@ -211,7 +211,7 @@ class AdvertisementController extends Controller
             $extcredits4_change = $account->extcredits4 - 1;
             $aboutLog->addLog($insert_id, $user->uid, $user->username, $user->pt_id, ["extcredits4" => $extcredits4_change], ["extcredits4" => $account->extcredits4]);
 
-            return $this->getResponse(['status' => "赠送葡萄币", "url" => "https://a119112.oss-cn-beijing.aliyuncs.com/app_question/haibao/haibao.jpg"]);
+            return $this->getResponse(['status' => "赠送我的币", "url" => "https://a119112.oss-cn-beijing.aliyuncs.com/app_question/haibao/haibao.jpg"]);
         } catch (\Throwable $e) {
             if (!empty($e->getCode())) {
                 throw new ApiException($e->getMessage(), $e->getCode());
@@ -259,7 +259,7 @@ class AdvertisementController extends Controller
     }
 
     /**
-     * 点击广告，用户获得葡萄币奖励
+     * 点击广告，用户获得我的币奖励
      * 用于web点击，兼容旧版
      * 无论何种情况，都会重定向到广告页面
      * @param Request $request
@@ -313,7 +313,7 @@ window.location.replace(uri);
         }
         if (empty($request->article_id)) {
             return "<script>
-alert('文章必须分享到微信！才能点击获得葡萄币哦！');
+alert('文章必须分享到微信！才能点击获得我的币哦！');
         function htmlDecode(text){
             var temp = document.createElement(\"div\");
             temp.innerHTML = text;
@@ -370,7 +370,7 @@ window.location.replace(uri);
 
         if ($article_info->touch_number >= 3) {
             return "<script>
-alert('当前文章点击葡萄币已经达到上限！请重新发布新的文章！');
+alert('当前文章点击我的币已经达到上限！请重新发布新的文章！');
         function htmlDecode(text){
             var temp = document.createElement(\"div\");
             temp.innerHTML = text;
@@ -395,7 +395,7 @@ window.location.replace(uri);
         }
         if ($time_check < 86400 && $count_log >= 3) {
             return "<script>
-alert('当前领取葡萄币已经上限！');
+alert('当前领取我的币已经上限！');
         function htmlDecode(text){
             var temp = document.createElement(\"div\");
             temp.innerHTML = text;

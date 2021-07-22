@@ -170,7 +170,7 @@ class PayPaiController extends Controller
 
                 $account = $userAccount->getUserAccount($user->uid);
                 if ($account->extcredits4 <= 0) {
-                    return $this->getInfoResponse('3002', '葡萄币数量不足');
+                    return $this->getInfoResponse('3002', '我的币数量不足');
                 }
                 $ptb_number = $account->extcredits4;
                 $price = $real_price;
@@ -243,11 +243,11 @@ class PayPaiController extends Controller
 
 
             if ($type == 3) {
-//                if ($arrRequest['app_id'] != 1694511) return $this->getInfoResponse('4123', '支付宝正在升级中，请先用微信或者葡萄币支付');
+//                if ($arrRequest['app_id'] != 1694511) return $this->getInfoResponse('4123', '支付宝正在升级中，请先用微信或者我的币支付');
 //                $order = [
 //                    'out_trade_no' => $orders->order_id,
 //                    'total_amount' => $real_price,
-//                    'subject' => '葡萄商城购物 - ' . $real_price . '元',
+//                    'subject' => '我的商城购物 - ' . $real_price . '元',
 //                ];
 //                $alipay = Pay::alipay($this->config)->app($order);
 //                return $alipay;
@@ -260,7 +260,7 @@ class PayPaiController extends Controller
                 return $this->getResponse($res);
             }
             if ($type == 2) {
-//                if ($arrRequest['app_id'] != 1694511) return $this->getInfoResponse('4123', '支付宝正在升级中，请先用微信或者葡萄币支付');
+//                if ($arrRequest['app_id'] != 1694511) return $this->getInfoResponse('4123', '支付宝正在升级中，请先用微信或者我的币支付');
                 $payPayService = new PayPaiService();
 //                $real_price = 0.02; // 测试专用
                 $res = $payPayService->h5Pay(
@@ -271,7 +271,7 @@ class PayPaiController extends Controller
                 //                $order = [
 //                    'out_trade_no' => $orders->order_id,
 //                    'total_amount' => $real_price,
-//                    'subject' => '葡萄商城购物 - ' . $real_price . '元',
+//                    'subject' => '我的商城购物 - ' . $real_price . '元',
 //                ];
 //                $alipay = Pay::alipay($this->config)->app($order);
 //                return $alipay;

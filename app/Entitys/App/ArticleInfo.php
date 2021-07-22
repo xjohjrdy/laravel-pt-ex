@@ -44,7 +44,7 @@ class ArticleInfo extends Model
     }
 
     /**
-     * 增加葡萄币金额
+     * 增加我的币金额
      * @param int $value
      * @return int
      */
@@ -54,7 +54,7 @@ class ArticleInfo extends Model
     }
 
     /**
-     * 增加葡萄币金额
+     * 增加我的币金额
      * @param int $value
      * @return int
      */

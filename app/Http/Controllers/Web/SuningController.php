@@ -14,13 +14,13 @@ class SuningController extends Controller
     {
         $app_id = 0;
         if (empty($request->app_id)) {
-            dd("请关闭葡萄浏览器，重启以后再试！");
+            dd("请关闭我的浏览器，重启以后再试！");
         } else {
             $app_id = $request->app_id;
         }
 
         if (empty($app_id)) {
-            dd("请关闭葡萄浏览器，重启后再试！");
+            dd("请关闭我的浏览器，重启后再试！");
         }
         $this_url = 'https://fymoon.com.cn/app.html?wid=61a';
 

@@ -15,7 +15,7 @@ class RefundService extends Model
      * @param string $desc 退款描述
      * @return bool
      */
-    public function aliRefund($order_id, $amount, $desc = '葡萄浏览器退款')
+    public function aliRefund($order_id, $amount, $desc = '我的浏览器退款')
     {
 
         $order = [
@@ -67,7 +67,7 @@ class RefundService extends Model
      * @param string $desc 退款描述
      * @return bool
      */
-    public function weRefund($order_id, $amount, $desc = '葡萄浏览器退款')
+    public function weRefund($order_id, $amount, $desc = '我的浏览器退款')
     {
         $order = [
             'out_trade_no' => $order_id,

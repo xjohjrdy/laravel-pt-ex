@@ -31,7 +31,7 @@ class RechargeMaidController extends Controller
                 $res[$k]->from_id = $order->app_id;
                 $res[$k]->to_phone = $order->phone;
                 $res[$k]->updated_at = $v->updated_at;
-                $res[$k]->string_info = 'ID：' . $order->app_id . '，' . $order->phone . '充值' . $order->price . '元葡萄通讯，奖励您' . ($v->money * 10) . '葡萄币。';
+                $res[$k]->string_info = 'ID：' . $order->app_id . '，' . $order->phone . '充值' . $order->price . '元我的通讯，奖励您' . ($v->money * 10) . '我的币。';
             }
             return $this->getResponse($res);
         } catch (\Exception $e) {

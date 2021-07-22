@@ -31,7 +31,7 @@ class RefundController extends Controller
                 throw new ApiException('缺少必要参数,错误信息：' . $validator->errors(), 3002);
             }
 
-            $desc = empty($arrRequest['desc']) ? '葡萄浏览器商城退款' : $arrRequest['desc'];
+            $desc = empty($arrRequest['desc']) ? '我的浏览器商城退款' : $arrRequest['desc'];
             $order_id = $arrRequest['order_id'];
             $amount = $arrRequest['amount'];
             $you_sign = $arrRequest['sign'];

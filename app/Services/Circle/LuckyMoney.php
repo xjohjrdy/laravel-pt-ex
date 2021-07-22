@@ -24,8 +24,8 @@ class LuckyMoney
 
     /*
      * 发红包扣款
-     * 通过用户 app_id 扣除相应葡萄币，并记录日志
-     * $value 为葡萄币值
+     * 通过用户 app_id 扣除相应我的币，并记录日志
+     * $value 为我的币值
      * （独立方法，可直接调用）
      */
     public function takePtb($app_id, $value)
@@ -43,7 +43,7 @@ class LuckyMoney
 //            $insert_id = $obj_credit_log->addLog($user_uid, "RSP", ['extcredits4' => -$value]);
 //            $obj_about_log->addLog($insert_id, $user_uid, $username, $app_id, ["extcredits4" => $user_ptb], ["extcredits4" => $user_ptb - $value]);
 
-            //扣除葡萄币改为扣除余额
+            //扣除我的币改为扣除余额
             $obj_user_money = new UserMoney();
             $obj_user_money->minusCnyAndLog($app_id, $value/10, '', "RSP");
         } catch (\Exception $e) {
@@ -115,10 +115,10 @@ class LuckyMoney
     }
 
     /*
-     * 通过 App_id 添加用户葡萄币，并记录日志
-     * $value为葡萄币值
+     * 通过 App_id 添加用户我的币，并记录日志
+     * $value为我的币值
      * （可独立使用）
-     * （用做领取到红包，获得葡萄币）
+     * （用做领取到红包，获得我的币）
      */
     public function addPtb($app_id, $value)
     {
@@ -134,7 +134,7 @@ class LuckyMoney
 //            $obj_about_log = new UserAboutLog();
 //            $insert_id = $obj_credit_log->addLog($user_uid, "RLP", ['extcredits4' => $value]);
 //            $obj_about_log->addLog($insert_id, $user_uid, $username, $app_id, ["extcredits4" => $user_ptb], ["extcredits4" => $user_ptb + $value]);
-            //加葡萄币改为加余额
+            //加我的币改为加余额
             $obj_user_money = new UserMoney();
             $obj_user_money->plusCnyAndLog($app_id, $value/10, 54);
 

@@ -309,7 +309,7 @@ class BecomeHostController extends Controller
                 $tmp_pass = $host->verifyPtb($user_uid, $circle_price * 10);
 
                 if ($tmp_pass == false) {
-                    return $this->getInfoResponse('3001', '葡萄币不足');
+                    return $this->getInfoResponse('3001', '我的币不足');
                 }
                 $host->takePtb($app_id, $circle_price * 10);
                 $order_value['money'] = $circle_price;
@@ -413,7 +413,7 @@ class BecomeHostController extends Controller
             if ($buy_type == 3) {
             }
             if ($buy_type == 2 && $app_id != 1694511) {
-                return $this->getInfoResponse('3001', '支付宝正在升级中，请先用微信或者葡萄币支付！');
+                return $this->getInfoResponse('3001', '支付宝正在升级中，请先用微信或者我的币支付！');
             }
             if (Cache::has('become_host_bid_' . $app_id)) {
                 return $this->getInfoResponse('2005', '频率过快请稍后再试.');
@@ -442,7 +442,7 @@ class BecomeHostController extends Controller
                 $tmp_pass = $host->verifyPtb($user_uid, $circle_price * 10);
 
                 if ($tmp_pass == false) {
-                    return $this->getInfoResponse('3001', '葡萄币不足');
+                    return $this->getInfoResponse('3001', '我的币不足');
                 }
                 $host->takePtb($app_id, $circle_price * 10);
                 $order_value['money'] = $circle_price;
@@ -479,7 +479,7 @@ class BecomeHostController extends Controller
                     if (empty($re_obj_user->user_name)) {
                         $re_obj_user->user_name = 'ID：' . $re_obj_user->id;
                     }
-                    $n_data['notify'] = "{$re_obj_user->user_name} 花费 " . ($circle_price * 10) . "葡萄币，抢购了您的“{$ring_title}”圈子！";
+                    $n_data['notify'] = "{$re_obj_user->user_name} 花费 " . ($circle_price * 10) . "我的币，抢购了您的“{$ring_title}”圈子！";
                     $n_data['to_id'] = $ring_id;
                     $n_data['type'] = 3;
                     $obj_notify->addNotify($n_data);
@@ -846,7 +846,7 @@ class BecomeHostController extends Controller
                 if (empty($re_obj_user->user_name)) {
                     $re_obj_user->user_name = 'ID：' . $re_obj_user->id;
                 }
-                $n_data['notify'] = "{$re_obj_user->user_name} 花费 " . ($actual * 10) . "葡萄币，抢购了您的“{$circle_info->ico_title}”圈子！";
+                $n_data['notify'] = "{$re_obj_user->user_name} 花费 " . ($actual * 10) . "我的币，抢购了您的“{$circle_info->ico_title}”圈子！";
                 $n_data['to_id'] = $circle_id;
                 $n_data['type'] = 3;
                 $obj_notify->addNotify($n_data);
@@ -980,7 +980,7 @@ class BecomeHostController extends Controller
                 if (empty($re_obj_user->user_name)) {
                     $re_obj_user->user_name = 'ID：' . $re_obj_user->id;
                 }
-                $n_data['notify'] = "{$re_obj_user->user_name} 花费 " . ($actual * 10) . "葡萄币，抢购了您的“{$circle_info->ico_title}”圈子！";
+                $n_data['notify'] = "{$re_obj_user->user_name} 花费 " . ($actual * 10) . "我的币，抢购了您的“{$circle_info->ico_title}”圈子！";
                 $n_data['to_id'] = $circle_id;
                 $n_data['type'] = 3;
                 $obj_notify->addNotify($n_data);

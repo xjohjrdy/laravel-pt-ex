@@ -25,7 +25,7 @@ class PtMoneyChangeLog extends Model
     protected $guarded = [];
 
     /**
-     * 葡萄币转余额日志记录
+     * 我的币转余额日志记录
      * @param $app_id
      * @param $ptb
      * @param $rmb

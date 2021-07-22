@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //葡萄用户
+        //我的用户
 //        AppUserInfo::observe(UserObserver::class);
 
         //广告联盟
@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
         //报销
 //        UserOrderNew::observe(UserOrderNewObserver::class);
 
-        //葡萄通讯
+        //我的通讯
 //        VoipMoneyOrder::observe(VoipMoneyOrderObserver::class);
 
         //签到

@@ -79,7 +79,7 @@ class Withdrawalsawals
                 ->where('uid', $arrParam['adUid'])
                 ->update(['extcredits4' => $arrParam['extcredits4'] + $arrParam['ptGold']]);
         } catch (\Exception $e) {
-            throw new ApiException('添加葡萄币失败', '5001');
+            throw new ApiException('添加我的币失败', '5001');
         }
         try {
             $insert_id = $this->userCreditLog->addLog(intval($arrParam['adUid']), "APT", ['extcredits4' => intval($arrParam['ptGold'])]);

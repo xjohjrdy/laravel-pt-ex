@@ -154,7 +154,7 @@ class IndexController extends UserAuthContoller
                     $data['event'] = '本人或直推用户首次购买圈子奖励2分';
                     break;
                 case PutaoRealActive::EVENT_SHOP:
-                    $data['event'] = '本人或直推用户购买葡萄包括商城购物' . $obj->param1 . '元';
+                    $data['event'] = '本人或直推用户购买我的包括商城购物' . $obj->param1 . '元';
                     break;
                 case PutaoRealActive::EVENT_FANS:
                     $data['event'] = '直推用户奖励1分';
@@ -163,7 +163,7 @@ class IndexController extends UserAuthContoller
                     $data['event'] = '本人或直推用户成为超级用户奖励2分';
                     break;
                 case PutaoRealActive::EVENT_VOIP:
-                    $data['event'] = '本人或直推用户购买葡萄通讯花费1笔奖励1分';
+                    $data['event'] = '本人或直推用户购买我的通讯花费1笔奖励1分';
                     break;
             }
 

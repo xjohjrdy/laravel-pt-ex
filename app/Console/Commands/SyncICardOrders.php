@@ -206,7 +206,7 @@ class SyncICardOrders extends Command
             $rate_key = 'partner';
         }
         $real_rate = $this->rateGroup[$user['identify']][$rate_key]; // 获取最终要分佣的金额比率
-        $commission = $money * $real_rate * 10; // 葡萄币数量
+        $commission = $money * $real_rate * 10; // 我的币数量
         $card_maid = [ // 信用卡分佣记录入库
             'from_app_id' => $user['pt_id'],
             'record_id' => $orderId,
@@ -215,7 +215,7 @@ class SyncICardOrders extends Command
             'type' => 1,
             'app_id' => $user['pt_id'],
         ];
-//        $this->addPtb($user['pt_id'], $commission); // 信用卡分佣葡萄币记录
+//        $this->addPtb($user['pt_id'], $commission); // 信用卡分佣我的币记录
         $commissionRMB = $money * $real_rate;
         $this->userMoneyService->plusCnyAndLog($user['pt_id'], $commissionRMB, '58');
         $this->cardMaidModel->create($card_maid);
@@ -248,7 +248,7 @@ class SyncICardOrders extends Command
             $rate_key = 'partner';
         }
         $real_rate = $this->rateGroup[$user['identify']][$rate_key]; // 获取最终要分佣的金额比率
-        $commission = $money * $real_rate * 10; // 葡萄币数量
+        $commission = $money * $real_rate * 10; // 我的币数量
         $card_maid = [ // 信用卡分佣记录入库
             'from_app_id' => $from,
             'record_id' => $orderId,
@@ -257,7 +257,7 @@ class SyncICardOrders extends Command
             'type' => 2,
             'app_id' => $user['pt_id'],
         ];
-//        $this->addPtb($user['pt_id'], $commission); // 信用卡分佣葡萄币记录
+//        $this->addPtb($user['pt_id'], $commission); // 信用卡分佣我的币记录
         $commissionRMB = $money * $real_rate;
         $this->userMoneyService->plusCnyAndLog($user['pt_id'], $commissionRMB, '58');
         $this->cardMaidModel->create($card_maid);

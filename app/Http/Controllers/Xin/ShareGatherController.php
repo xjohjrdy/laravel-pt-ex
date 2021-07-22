@@ -41,13 +41,13 @@ class ShareGatherController extends Controller
 //                        "img_url" => "http://cdn01.36qq.com/CDN/%E6%B5%B7%E6%8A%A5%E5%88%86%E4%BA%AB/00.jpg"
 //                    ], [
 //                        "poster_id" => 50,
-//                        "title" => "办信用卡来葡萄",
+//                        "title" => "办信用卡来我的",
 //                        "content" => "在线就能一键办卡\r\n自办返佣金 分享能赚钱",
 //                        "img_url" => "http://cdn01.36qq.com/CDN/%E6%B5%B7%E6%8A%A5%E5%88%86%E4%BA%AB/01.jpg"
 //                    ], [
 //                        "poster_id" => 50,
 //                        "title" => "肯德基6折起",
-//                        "content" => "特惠点餐尽情开吃\r\n葡萄浏览器请你吃KFC啦~",
+//                        "content" => "特惠点餐尽情开吃\r\n我的浏览器请你吃KFC啦~",
 //                        "img_url" => "http://cdn01.36qq.com/CDN/%E6%B5%B7%E6%8A%A5%E5%88%86%E4%BA%AB/022.jpg"
 //                    ], [
 //                        "poster_id" => 50,
@@ -61,7 +61,7 @@ class ShareGatherController extends Controller
 //                        "img_url" => "http://cdn01.36qq.com/CDN/%E6%B5%B7%E6%8A%A5%E5%88%86%E4%BA%AB/044.jpg"
 //                    ], [
 //                        "poster_id" => 50,
-//                        "title" => "葡萄圈子 人脉增值",
+//                        "title" => "我的圈子 人脉增值",
 //                        "content" => "精准吸引人脉\r\n具备投资价值\r\n准确营销+投放",
 //                        "img_url" => "http://cdn01.36qq.com/CDN/%E6%B5%B7%E6%8A%A5%E5%88%86%E4%BA%AB/05.jpg"
 //                    ], [

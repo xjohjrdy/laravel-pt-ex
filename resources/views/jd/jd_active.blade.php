@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>注册京东白条奖励10元！葡萄浏览器联合京东活动</title>
+    <title>注册京东白条奖励10元！我的浏览器联合京东活动</title>
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes"/>

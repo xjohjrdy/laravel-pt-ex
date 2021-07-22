@@ -154,7 +154,7 @@ class OrderController extends Controller
                 $obj_enter = new TaobaoEnterOrder();
                 $obj_order_info = $obj_enter->getOneOrders($order_number);
                 if (empty($obj_order_info)) {
-                    return $this->getInfoResponse('1002', '亲~ 很抱歉！ 该订单不符合报销条件，若下单后20分钟订单仍不符合报销条件，建议您尽快退 货，并重新通过葡萄浏览器下单；感谢您的理解与支持！');
+                    return $this->getInfoResponse('1002', '亲~ 很抱歉！ 该订单不符合报销条件，若下单后20分钟订单仍不符合报销条件，建议您尽快退 货，并重新通过我的浏览器下单；感谢您的理解与支持！');
                 }
             }
             if ($userOrderNew->where(['order_number' => $order_number])->first()) {

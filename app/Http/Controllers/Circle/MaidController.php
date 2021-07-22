@@ -149,35 +149,35 @@ class MaidController extends Controller
             if ($arrRequest['type'] == 0) {
                 foreach ($list as $k => $value) {
                     $user_app = $appUserInfo->getUserById($value->from_app_id);
-                    $arr[$k]['info'] = "您抢到了" . ($user_app->user_name ? $user_app->user_name : "ID:" . $value->from_app_id) . "的红包，共抢到" . $value->have . "葡萄币。";
+                    $arr[$k]['info'] = "您抢到了" . ($user_app->user_name ? $user_app->user_name : "ID:" . $value->from_app_id) . "的红包，共抢到" . $value->have . "我的币。";
                     $arr[$k]['created_at'] = $value->created_at;
                     $arr[$k]['ico_img'] = $user_app->avatar;
                 }
             }
             if ($arrRequest['type'] == 1) {
                 foreach ($list as $k => $value) {
-                    $arr[$k]['info'] = ($value->from_user_name ? $value->from_user_name : "用户:" . substr_replace($value->from_user_phone, '***', 1, 9)) . "花费了" . ($value->order_money / 10) . "元抢购了您的" . $value->from_circle_name . "圈子，您获得" . $value->money . "葡萄币。";
+                    $arr[$k]['info'] = ($value->from_user_name ? $value->from_user_name : "用户:" . substr_replace($value->from_user_phone, '***', 1, 9)) . "花费了" . ($value->order_money / 10) . "元抢购了您的" . $value->from_circle_name . "圈子，您获得" . $value->money . "我的币。";
                     $arr[$k]['created_at'] = $value->created_at;
                     $arr[$k]['ico_img'] = $value->from_circle_img;
                 }
             }
             if ($arrRequest['type'] == 5) {
                 foreach ($list as $k => $value) {
-                    $arr[$k]['info'] = "您的直属会员" . ($value->from_user_name ? $value->from_user_name : substr_replace($value->from_user_phone, '***', 1, 9)) . "花费了" . ($value->order_money / 10) . "元竞价抢购了'" . $value->from_circle_name . "'圈子，您获得" . $value->money . "葡萄币。";
+                    $arr[$k]['info'] = "您的直属会员" . ($value->from_user_name ? $value->from_user_name : substr_replace($value->from_user_phone, '***', 1, 9)) . "花费了" . ($value->order_money / 10) . "元竞价抢购了'" . $value->from_circle_name . "'圈子，您获得" . $value->money . "我的币。";
                     $arr[$k]['created_at'] = $value->created_at;
                     $arr[$k]['ico_img'] = $value->from_circle_img;
                 }
             }
             if ($arrRequest['type'] == 2) {
                 foreach ($list as $k => $value) {
-                    $arr[$k]['info'] = "直属会员：" . ($value->from_user_name ? $value->from_user_name : substr_replace($value->from_user_phone, '***', 1, 9)) . "付费" . ($value->order_money / 10) . "元进入了您的" . $value->from_circle_name . "圈子，作为圈主您获得" . $value->money . "葡萄币。";
+                    $arr[$k]['info'] = "直属会员：" . ($value->from_user_name ? $value->from_user_name : substr_replace($value->from_user_phone, '***', 1, 9)) . "付费" . ($value->order_money / 10) . "元进入了您的" . $value->from_circle_name . "圈子，作为圈主您获得" . $value->money . "我的币。";
                     $arr[$k]['created_at'] = $value->created_at;
                     $arr[$k]['ico_img'] = $value->from_circle_img;
                 }
             }
             if ($arrRequest['type'] == 6) {
                 foreach ($list as $k => $value) {
-                    $arr[$k]['info'] = "直属会员" . ($value->from_user_name ? $value->from_user_name : substr_replace($value->from_user_phone, '***', 1, 9)) . "付费" . ($value->order_money / 10) . "元进入了'" . $value->from_circle_name . "'圈子，您获得" . $value->money . "葡萄币。";
+                    $arr[$k]['info'] = "直属会员" . ($value->from_user_name ? $value->from_user_name : substr_replace($value->from_user_phone, '***', 1, 9)) . "付费" . ($value->order_money / 10) . "元进入了'" . $value->from_circle_name . "'圈子，您获得" . $value->money . "我的币。";
                     $arr[$k]['created_at'] = $value->created_at;
                     $arr[$k]['ico_img'] = $value->from_circle_img;
                 }
@@ -185,7 +185,7 @@ class MaidController extends Controller
 
             if ($arrRequest['type'] == 3) {
                 foreach ($list as $k => $value) {
-                    $arr[$k]['info'] = "您的圈子“" . $value->from_circle_name . "”发了红包，您获得" . $value->money . "葡萄币。";
+                    $arr[$k]['info'] = "您的圈子“" . $value->from_circle_name . "”发了红包，您获得" . $value->money . "我的币。";
 
                     $arr[$k]['created_at'] = $value->created_at;
                     $arr[$k]['ico_img'] = $value->from_circle_img;
@@ -200,7 +200,7 @@ class MaidController extends Controller
                     } else {
                         $info = "团队会员";
                     }
-                    $arr[$k]['info'] = $info . ($value->from_user_name ? $value->from_user_name : substr_replace($value->from_user_phone, '***', 1, 9)) . "购买了圈子，您获得" . $value->money . "葡萄币。";
+                    $arr[$k]['info'] = $info . ($value->from_user_name ? $value->from_user_name : substr_replace($value->from_user_phone, '***', 1, 9)) . "购买了圈子，您获得" . $value->money . "我的币。";
                     $arr[$k]['created_at'] = $value->created_at;
                     $arr[$k]['ico_img'] = $value->from_circle_img;
                 }

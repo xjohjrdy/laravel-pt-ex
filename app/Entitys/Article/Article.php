@@ -62,7 +62,7 @@ class Article extends Model
             'title' => $title,
             'abstract' => $title,
             'article_url' => $url,
-            'vipcn_name' => '葡萄浏览器',
+            'vipcn_name' => '我的浏览器',
             'vipcn_url' => $url,
             'addtime' => time(),
             'static' => $static,

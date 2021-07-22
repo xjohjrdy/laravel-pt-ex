@@ -12,7 +12,7 @@ class UserAccount extends Model
     public $timestamps = false;
 
     /**
-     * 更新葡萄币金额
+     * 更新我的币金额
      * @param int $value
      * @return int
      */
@@ -32,7 +32,7 @@ class UserAccount extends Model
 	 * 就处理完成，所以我特地打这个电话，要求反馈给我一个解决方案
 	 * 解决方案1：等到我悦卡白金卡下卡，兑换以后，兑换订单帮我手动加入到加赠活动里面
 	 * 解决方案2：客服后台那边，帮助我兑换一次白金卡比例100：1，让我能及时参与15日以前得活动，如果无法在15日以前获得反馈，尽量帮我申请1号方案
-     * 减少葡萄币金额
+     * 减少我的币金额
      * @param int $value
      * @return int
      */
@@ -42,7 +42,7 @@ class UserAccount extends Model
     }
 
     /**
-     * 增加葡萄币金额
+     * 增加我的币金额
      * @param int $value
      * @return int
      */

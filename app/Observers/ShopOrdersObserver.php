@@ -27,7 +27,7 @@ class ShopOrdersObserver
                 
                 //排除VIP商品
                 if ( $price != 800 ) {
-                    //活跃值：6.葡萄爆款商城购买金额
+                    //活跃值：6.我的爆款商城购买金额
                     PutaoRealActive::eventListen( $app_id, PutaoRealActive::EVENT_SHOP, $id, $price, 0, $created_at);
                 }
             }
@@ -41,7 +41,7 @@ class ShopOrdersObserver
                 
                 //排除VIP商品
                 if ( $price != 800 ) {
-                    //活跃值：6.葡萄爆款商城购买金额
+                    //活跃值：6.我的爆款商城购买金额
                     PutaoRealActive::eventListen( $app_id, PutaoRealActive::EVENT_SHOP, -$id, -$price, 0, $created_at, null, $updated_at);
                 }
             }

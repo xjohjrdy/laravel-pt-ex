@@ -18,7 +18,7 @@ class NewSms
             $url_send_sms = "https://smsapp.wlwx.com/sendSms";
             $cust_code = "176001";
             $cust_pwd = "BPGGVDMO6W";
-            $content = "【葡萄浏览器】" . "您手机号验证码是" . $code . "。如不是您本人申请，请忽略此短信。";
+            $content = "【我的浏览器】" . "您手机号验证码是" . $code . "。如不是您本人申请，请忽略此短信。";
             $destMobiles = $phone;
             $uid = "";
             $sp_code = "";

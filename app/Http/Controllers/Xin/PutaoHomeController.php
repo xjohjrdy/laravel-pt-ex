@@ -121,13 +121,13 @@ class PutaoHomeController extends Controller
             $where_url = [];
             $ios_hide_version = $config->getHideConfigValue('ios_hide_version');
             if ($version == $ios_hide_version) {
-                $where_url = ['任务赚钱', '福音电影', '影视优惠', '爆款商城', '全网影视', '双11红包', '支付宝红包', '淘宝报销', '葡萄红包', '葡萄通讯', '券加报销', '广告联盟', '银行合作', '办信用卡', '贷款中心', '医疗健康'];
+                $where_url = ['任务赚钱', '福音电影', '影视优惠', '爆款商城', '全网影视', '双11红包', '支付宝红包', '淘宝报销', '我的红包', '我的通讯', '券加报销', '广告联盟', '银行合作', '办信用卡', '贷款中心', '医疗健康'];
             }
 
             $no_show = new NoShowAndroid();
             $version_one = $no_show->getOneVersion();
             if ($version_one == $version) {
-                $where_url = ['任务赚钱', '福音电影', '全网影视', '支付宝红包', '淘宝报销', '葡萄红包', '葡萄通讯', '券加报销', '广告联盟', '银行合作', '办信用卡', '贷款中心', '医疗健康'];
+                $where_url = ['任务赚钱', '福音电影', '全网影视', '支付宝红包', '淘宝报销', '我的红包', '我的通讯', '券加报销', '广告联盟', '银行合作', '办信用卡', '贷款中心', '医疗健康'];
             }
 
 

@@ -83,7 +83,7 @@ class CalUserInitDataEveryday extends Command
                     $option_maid_sum = $calUserDataService->getOptionIncome();//期权收益
                     $shop_orders_count = empty($shop_result['number']) ? 0 : $shop_result['number'];//商城订单数
                     $shop_all_sum = empty($shop_result['money']) ? 0 : $shop_result['money'];//商城总业绩
-                    $voip_sum = $calUserDataService->getMobilePassMoney();//新版葡萄通讯总额
+                    $voip_sum = $calUserDataService->getMobilePassMoney();//新版我的通讯总额
                     $all_user_answer = $calUserDataService->getReplyWorkCount();// 用户已回复工单的总数
                     $all_user_get = $calUserDataService->getUserAllDivideIncome();// 用户所有分佣记录值
 
